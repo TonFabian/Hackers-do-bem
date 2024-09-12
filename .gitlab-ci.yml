@@ -84,9 +84,20 @@ coverage:
   script:
     - echo "Executando análise de cobertura de testes..."
     - pip install coverage
-    - coverage run -m pytest  # Executa testes e coleta cobertura
-    - coverage report -m  # Gera relatório no terminal
-    - coverage xml  # Gera relatório em formato XML
+    - coverage run -m pytest  # Executa os testes e coleta a cobertura
+    - coverage report -m  # Mostra o relatório de cobertura no terminal
+    - coverage xml -o coverage.xml  # Gera o arquivo XML de cobertura
+  artifacts:
+    paths:
+      - coverage.xml  # Certifique-se de que o caminho e o nome do arquivo estejam corretos
+    reports:
+      coverage_report:
+        coverage_format: cobertura
+  only:
+    - develop
+    - stage
+    - master
+
   artifacts:
     paths:
       - coverage.xml
