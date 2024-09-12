@@ -16,8 +16,9 @@ lint:
   stage: lint
   image: python:3.9
   script:
+    - pip install --upgrade pip
     - pip install bandit
-    - bandit -r todo_project/todo_project -o bandit-report.html
+    - bandit -r todo_project/todo_project -f html -o bandit-report.html
   artifacts:
     paths:
       - bandit-report.html
