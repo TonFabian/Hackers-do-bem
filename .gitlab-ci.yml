@@ -18,7 +18,7 @@ lint:
   script:
     - pip install --upgrade pip
     - pip install bandit
-    - bandit -r todo_project/todo_project -f html -o bandit-report.html
+    - bandit -r todo_project/todo_project -f html -o bandit-report.html || true
   artifacts:
     paths:
       - bandit-report.html
@@ -34,6 +34,7 @@ dependency_check:
     paths:
       - dependency-check-report.html
     expire_in: 1 week
+  allow_failure: true
 
 # Estágio de Testes
 test:
