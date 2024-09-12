@@ -1,17 +1,22 @@
 stages:
+  - build
   - test
 
-image: python:3.9
-
-# Instalação e configuração do ambiente
+# Configurar o ambiente
 before_script:
-  - python -m venv venv                       # Cria ambiente virtual
-  - source venv/bin/activate                  # Ativa ambiente virtual
-  - pip install --upgrade pip                 # Atualiza pip
-  - pip install -r requirements.txt           # Instala dependências Python
+  - python -m venv venv  # Cria um ambiente virtual
+  - source venv/bin/activate  # Ativa o ambiente virtual
+  - pip install --upgrade pip  # Atualiza pip
+  - pip install -r requirements.txt  # Instala as dependências
 
-# Job de teste simples
+# Job de build
+build:
+  stage: build
+  script:
+    - echo "Build stage not needed for Python project"  # Placeholder para a etapa de build
+
+# Job de teste
 test:
   stage: test
   script:
-    - pytest --maxfail=1 --disable-warnings -q   # Roda testes com pytest
+    - pytest --maxfail=1 --disable-warnings -q  # Executa os testes
