@@ -1,8 +1,9 @@
+image: python:3.9
+
 stages:
   - build
   - test
 
-# Configurar o ambiente
 before_script:
   - python -m venv venv  # Cria um ambiente virtual
   - source venv/bin/activate  # Ativa o ambiente virtual
