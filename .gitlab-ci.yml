@@ -8,7 +8,7 @@ before_script:
   - python -m venv venv                       # Cria ambiente virtual
   - source venv/bin/activate                  # Ativa ambiente virtual
   - pip install --upgrade pip                 # Atualiza pip
-  - pip install pytest                        # Instala pytest
+  - pip install -r requirements.txt           # Instala dependências Python
 
 # Job de teste simples
 test:
