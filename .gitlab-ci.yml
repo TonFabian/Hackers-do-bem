@@ -17,14 +17,22 @@ lint:
   image: python:3.9
   script:
     - pip install bandit
-    - bandit -r todo_project/todo_project -o bandit-report.html
+    - bandit -r Task-Manager-using-Flask/todo_project -o bandit-report.html
+  artifacts:
+    paths:
+      - bandit-report.html
+    expire_in: 1 week
 
 # Estágio de Análise de Dependência com OWASP Dependency-Check
 dependency_check:
-  stage: lint
+  stage: security
   image: owasp/dependency-check:latest
   script:
-    - dependency-check.sh --project "My Project" --scan todo_project/todo_project --out dependency-check-report.html
+    - dependency-check.sh --project "My Project" --scan Task-Manager-using-Flask/todo_project --out dependency-check-report.html
+  artifacts:
+    paths:
+      - dependency-check-report.html
+    expire_in: 1 week
 
 # Estágio de Testes
 test:
@@ -38,3 +46,4 @@ test:
     - pip install -r requirements.txt
   script:
     - pytest --maxfail=1 --disable-warnings -q
+
