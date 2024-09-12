@@ -1,14 +1,30 @@
 stages:
   - build
+  - lint
   - test
+  - security
 
 # Estágio de Build
 build:
   stage: build
   script:
     - echo "Starting build process..."
-    # Exemplo de comandos de construção (ajuste conforme necessário)
-    # Se seu projeto Python não precisar de um build, você pode remover ou ajustar esta seção
+    # Adicione seus comandos de construção específicos aqui, se necessário
+
+# Estágio de Análise Estática de Código (SAST) com Bandit
+lint:
+  stage: lint
+  image: python:3.9
+  script:
+    - pip install bandit
+    - bandit -r todo_project/todo_project -o bandit-report.html
+
+# Estágio de Análise de Dependência com OWASP Dependency-Check
+dependency_check:
+  stage: lint
+  image: owasp/dependency-check:latest
+  script:
+    - dependency-check.sh --project "My Project" --scan todo_project/todo_project --out dependency-check-report.html
 
 # Estágio de Testes
 test:
@@ -22,5 +38,3 @@ test:
     - pip install -r requirements.txt
   script:
     - pytest --maxfail=1 --disable-warnings -q
-
-# Adicione outros estágios conforme necessário, como deploy
