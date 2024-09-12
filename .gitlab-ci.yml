@@ -4,20 +4,22 @@ stages:
   - build
   - test
 
-before_script:
-  - python -m venv venv  # Cria um ambiente virtual
-  - source venv/bin/activate  # Ativa o ambiente virtual
-  - pip install --upgrade pip  # Atualiza pip
-  - pip install -r requirements.txt  # Instala as dependências
+variables:
+  VENV_DIR: venv
 
-# Job de build
+before_script:
+  - python -m venv $VENV_DIR
+  - source $VENV_DIR/bin/activate
+  - pip install --upgrade pip
+  - pip install -r requirements.txt
+
 build:
   stage: build
   script:
-    - echo "Build stage not needed for Python project"  # Placeholder para a etapa de build
+    - echo "Build stage completed."
 
-# Job de teste
 test:
   stage: test
   script:
-    - pytest --maxfail=1 --disable-warnings -q  # Executa os testes
+    - source $VENV_DIR/bin/activate
+    - pytest --maxfail=1 --disable-warnings -q
