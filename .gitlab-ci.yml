@@ -25,7 +25,7 @@ lint:
 
 # Estágio de Análise de Dependência com OWASP Dependency-Check
 dependency_check:
-  stage: lint
+  stage: security
   image: owasp/dependency-check:latest
   script:
     - dependency-check.sh --project "My Project" --scan todo_project/todo_project --out dependency-check-report.html
