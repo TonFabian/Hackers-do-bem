@@ -2,16 +2,25 @@ stages:
   - build
   - test
 
+# Estágio de Build
 build:
   stage: build
   script:
-    - echo "Build stage completed."
+    - echo "Starting build process..."
+    # Exemplo de comandos de construção (ajuste conforme necessário)
+    # Se seu projeto Python não precisar de um build, você pode remover ou ajustar esta seção
 
+# Estágio de Testes
 test:
   stage: test
   image: python:3.9
-  script:
+  cache:
+    paths:
+      - .cache/pip
+  before_script:
     - pip install --upgrade pip
     - pip install -r requirements.txt
-    - pip show pytest  # Verifica a versão do pytest
+  script:
     - pytest --maxfail=1 --disable-warnings -q
+
+# Adicione outros estágios conforme necessário, como deploy
