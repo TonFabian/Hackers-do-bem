@@ -3,16 +3,23 @@ stages:
 
 image: python:3.9
 
+# Cache de pip para acelerar a instalação em execuções subsequentes
 cache:
   paths:
     - .cache/pip/
 
+# Instalar dependências do sistema operacional e preparar ambiente virtual
 before_script:
-  - python -m venv venv
-  - source venv/bin/activate
-  - pip install -r requirements.txt
+  - apt-get update                            # Atualiza lista de pacotes
+  - apt-get install -y apt-clone apturl       # Instala pacotes do sistema necessários
+  - python -m venv venv                       # Cria ambiente virtual
+  - source venv/bin/activate                  # Ativa ambiente virtual
+  - pip install --upgrade pip                 # Atualiza pip
+  - pip install -r requirements.txt           # Instala dependências Python
 
+# Job de teste usando pytest
 test:
   stage: test
   script:
-    - pytest
+    - pytest                                  # Roda testes
+
