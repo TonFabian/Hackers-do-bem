@@ -1,0 +1,99 @@
+stages:
+  - lint
+  - build
+  - test
+  - coverage
+
+variables:
+  # Definir variáveis globais para o pipeline
+  PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
+  PYTHON_VERSION: "3.9"
+
+# Cache para dependências Python, para otimizar as execuções do pipeline
+cache:
+  paths:
+    - .cache/pip/
+
+before_script:
+  # Instalar dependências comuns em todas as etapas
+  - python -m venv venv
+  - source venv/bin/activate
+  - pip install --upgrade pip
+  - pip install -r requirements.txt
+
+# Etapa de lint (verificação de qualidade de código)
+lint:
+  stage: lint
+  script:
+    - echo "Executando análise de linting com Flake8..."
+    - pip install flake8
+    - flake8 .
+  only:
+    - develop
+    - stage
+    - master
+
+# Etapa de build (compilação do código)
+build:
+  stage: build
+  script:
+    - echo "Compilando o código..."
+    - python setup.py install  # Exemplo de compilação em Python
+  only:
+    - develop
+    - stage
+    - master
+
+# Etapa de testes unitários
+unit_test:
+  stage: test
+  script:
+    - echo "Executando testes unitários..."
+    - pip install pytest
+    - pytest --maxfail=1 --disable-warnings  # Fail-fast para acelerar o feedback
+  only:
+    - develop
+    - stage
+    - master
+
+# Etapa de testes de integração
+integration_test:
+  stage: test
+  script:
+    - echo "Executando testes de integração..."
+    - ./run_integration_tests.sh  # Supondo que você tenha um script específico
+  only:
+    - develop
+    - stage
+    - master
+
+# Etapa de testes funcionais
+functional_test:
+  stage: test
+  script:
+    - echo "Executando testes funcionais..."
+    - ./run_functional_tests.sh  # Supondo que você tenha um script específico
+  only:
+    - develop
+    - stage
+    - master
+
+# Etapa de cobertura de testes
+coverage:
+  stage: coverage
+  script:
+    - echo "Executando análise de cobertura de testes..."
+    - pip install coverage
+    - coverage run -m pytest  # Executa testes e coleta cobertura
+    - coverage report -m  # Gera relatório no terminal
+    - coverage xml  # Gera relatório em formato XML
+  artifacts:
+    paths:
+      - coverage.xml
+    reports:
+      coverage_report:
+        coverage_format: cobertura
+  only:
+    - develop
+    - stage
+    - master
