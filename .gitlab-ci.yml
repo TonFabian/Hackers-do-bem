@@ -40,6 +40,18 @@ test:
     - pytest --maxfail=1 --disable-warnings -q
 
 # Estágio de Análise de Dependência com OWASP Dependency-Check
+dependency_check:
+  stage: security
+  image: owasp/dependency-check:latest
+  script:
+    - dependency-check.sh --project "My Project" --scan todo_project/todo_project --out dependency-check-report.html
+  artifacts:
+    paths:
+      - dependency-check-report.html
+    expire_in: 1 week
+  allow_failure: true
+
+# Estágio de Análise Dinâmica de Segurança (DAST) com OWASP ZAP
 dast:
   stage: deploy
   script:
@@ -55,23 +67,6 @@ dast:
       - zap-report.html
     expire_in: 1 week
   allow_failure: true
-
-
-# Estágio de Análise Dinâmica de Segurança (DAST) com OWASP ZAP
-dast:
-  stage: deploy
-  script:
-    - echo "Starting OWASP ZAP daemon..."
-    - /home/werton/Task-Manager-using-Flask/ZAP_2.15.0/zap.sh -daemon -host 127.0.0.1 -port 8080 &
-    - sleep 60 # Aguarda o ZAP iniciar completamente
-    - echo "Performing DAST scan..."
-    - /home/werton/Task-Manager-using-Flask/ZAP_2.15.0/zap.sh -cmd -host 127.0.0.1 -port 8080 -quickurl http://stage-environment-url -o zap-report.html
-  artifacts:
-    paths:
-      - zap-report.html
-    expire_in: 1 week
-  allow_failure: true
-
 
 # Estágio de Deploy
 deploy:
