@@ -28,7 +28,7 @@ def login():
         return redirect(url_for('all_tasks'))
 
     form = LoginForm()
-    if form.validate_on_submit():
+    if form.validate_on_submit():  # Sem argumentos adicionais
         user = User.query.filter_by(username=form.username.data).first()
         if user and bcrypt.check_password_hash(user.password, form.password.data):
             login_user(user)
@@ -50,7 +50,7 @@ def register():
         return redirect(url_for('all_tasks'))
 
     form = RegistrationForm()
-    if form.validate_on_submit():
+    if form.validate_on_submit():  # Sem argumentos adicionais
         hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
         user = User(username=form.username.data, password=hashed_password)
         db.session.add(user)
@@ -70,7 +70,7 @@ def all_tasks():
 @login_required
 def add_task():
     form = TaskForm()
-    if form.validate_on_submit():
+    if form.validate_on_submit():  # Sem argumentos adicionais
         task = Task(content=form.task_name.data, author=current_user)
         db.session.add(task)
         db.session.commit()
@@ -83,7 +83,7 @@ def add_task():
 def update_task(task_id):
     task = Task.query.get_or_404(task_id)
     form = UpdateTaskForm()
-    if form.validate_on_submit():
+    if form.validate_on_submit():  # Sem argumentos adicionais
         if form.task_name.data != task.content:
             task.content = form.task_name.data
             db.session.commit()
@@ -108,7 +108,7 @@ def delete_task(task_id):
 @login_required
 def account():
     form = UpdateUserInfoForm()
-    if form.validate_on_submit():
+    if form.validate_on_submit():  # Sem argumentos adicionais
         if form.username.data != current_user.username:  
             current_user.username = form.username.data
             db.session.commit()
@@ -123,7 +123,7 @@ def account():
 @login_required
 def change_password():
     form = UpdateUserPassword()
-    if form.validate_on_submit():
+    if form.validate_on_submit():  # Sem argumentos adicionais
         if bcrypt.check_password_hash(current_user.password, form.old_password.data):
             current_user.password = bcrypt.generate_password_hash(form.new_password.data).decode('utf-8')
             db.session.commit()
