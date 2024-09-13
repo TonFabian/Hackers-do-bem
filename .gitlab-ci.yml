@@ -5,6 +5,7 @@ stages:
   - security
   - review
   - deploy
+  - dast
 
 # Estágio de Build
 build:
@@ -29,9 +30,9 @@ lint:
 # Estágio de Análise de Dependência com OWASP Dependency-Check
 dependency_check:
   stage: security
+  image: owasp/dependency-check:latest
   script:
-    - pip install dependency-check
-    - dependency-check --project "My Project" --scan todo_project/todo_project --out dependency-check-report.html
+    - dependency-check.sh --project "My Project" --scan todo_project/todo_project --out dependency-check-report.html
   artifacts:
     paths:
       - dependency-check-report.html
@@ -51,31 +52,28 @@ test:
   script:
     - pytest --maxfail=1 --disable-warnings -q
 
+# Estágio de Deploy
+deploy:
+  stage: deploy
+  script:
+    - echo "Deploying application..."
+    # Adicione seus comandos de deploy aqui
+
 # Estágio de Revisão
 review:
   stage: review
   script:
-    - echo "Review environment setup (e.g., deploy to a temporary environment)"
-    # Adicione comandos para criar um ambiente temporário para revisão
+    - echo "Creating review environment..."
+    # Adicione seus comandos para criar o ambiente de revisão aqui
 
-# Estágio de Deploy em Estágio
-deploy:
-  stage: deploy
-  script:
-    - echo "Deploying to staging environment"
-    # Adicione comandos para realizar o deploy no ambiente de staging
-
-# Estágio de Testes de Segurança Dinâmicos (DAST) com OWASP ZAP
+# Estágio de Testes de Segurança de Aplicação Dinâmicos (DAST)
 dast:
-  stage: security
+  stage: dast
+  image: owasp/zap2docker-stable
   script:
-    - wget https://github.com/zaproxy/zaproxy/releases/download/v2.12.0/ZAP_2.12.0_Linux.tar.gz
-    - tar -xvzf ZAP_2.12.0_Linux.tar.gz
-    - ./zap/zap.sh -daemon -port 8080
-    - zap-cli quick-scan -r zap_report.html http://localhost:8080
+    - echo "Starting OWASP ZAP for DAST..."
+    - zap-baseline.py -t http://localhost:8080 -r zap-report.html
   artifacts:
     paths:
-      - zap_report.html
+      - zap-report.html
     expire_in: 1 week
-  dependencies:
-    - deploy
