@@ -55,10 +55,11 @@ dependency_check:
 dast:
   stage: deploy
   script:
-    - echo "Deploying to stage environment..."
-    # Simulação de deploy no ambiente de stage. Ajuste conforme necessário.
+    - echo "Starting OWASP ZAP daemon..."
+    - /home/werton/Task-Manager-using-Flask/ZAP_2.15.0/zap.sh -daemon -host 127.0.0.1 -port 8080
+    - sleep 30 # Aguarda o ZAP iniciar completamente
     - echo "Performing DAST scan..."
-    - /path/to/owasp-zap --dast-url http://stage-environment-url --output zap-report.html
+    - /home/werton/Task-Manager-using-Flask/ZAP_2.15.0/zap.sh -cmd -daemon -host 127.0.0.1 -port 8080 -quickurl http://stage-environment-url -r zap-report.html
   artifacts:
     paths:
       - zap-report.html
