@@ -59,10 +59,10 @@ dynamic_security_analysis:
     - echo "Stopping any existing OWASP ZAP instances..."  
     - pkill -f 'zap.sh' || true  
     - echo "Starting OWASP ZAP daemon..."  
-    - /home/werton/ZAP_2.15.0/zap.sh -daemon -host 127.0.0.1 -port 5000  -logfile zap.log &  
+    - /home/werton/ZAP_2.15.0/zap.sh -daemon -host 127.0.0.1 -port 5000 -logfile zap.log &  
     - sleep 60 # Aguarda o ZAP iniciar completamente  
     - echo "Performing DAST scan..."  
-    - /home/werton/ZAP_2.15.0/zap.sh -cmd -host 127.0.0.1 -port 5000  -quickurl http://127.0.0.1:5000 -o zap-report.html  
+    - /home/werton/ZAP_2.15.0/zap.sh -cmd -host 127.0.0.1 -port 5000 -quickurl http://127.0.0.1:5000 -o zap-report.html  
   artifacts:  
     paths:  
       - zap-report.html  
