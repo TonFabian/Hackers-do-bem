@@ -1,59 +1,60 @@
-stages:
-  - build
-  - lint
-  - test
-  - security
-  - deploy
-  - review
+stages:  
+  - build  
+  - lint  
+  - test  
+  - security  
+  - dynamic_security_analysis  
+  - deploy  
+  - review  
 
-# Estágio de Build
-build:
-  stage: build
-  script:
-    - echo "Starting build process..."
-    # Adicione seus comandos de construção específicos aqui, se necessário
+# Estágio de Build  
+build:  
+  stage: build  
+  script:  
+    - echo "Starting build process..."  
+    # Adicione seus comandos de construção específicos aqui, se necessário  
 
-# Estágio de Análise Estática de Código (SAST) com Bandit
-lint:
-  stage: lint
-  image: python:3.9
-  script:
-    - pip install --upgrade pip
-    - pip install bandit
-    - bandit -r todo_project/todo_project -f html -o bandit-report.html || true
-  artifacts:
-    paths:
-      - bandit-report.html
-    expire_in: 1 week
+# Estágio de Análise Estática de Código (SAST) com Bandit  
+lint:  
+  stage: lint  
+  image: python:3.9  
+  script:  
+    - pip install --upgrade pip  
+    - pip install bandit  
+    - bandit -r todo_project/todo_project -f html -o bandit-report.html || true  
+  artifacts:  
+    paths:  
+      - bandit-report.html  
+    expire_in: 1 week  
 
-# Estágio de Testes
-test:
-  stage: test
-  image: python:3.9
-  cache:
-    paths:
-      - .cache/pip
-  before_script:
-    - pip install --upgrade pip
-    - pip install -r requirements.txt
-  script:
-    - pytest --maxfail=1 --disable-warnings -q
+# Estágio de Testes  
+test:  
+  stage: test  
+  image: python:3.9  
+  cache:  
+    paths:  
+      - .cache/pip  
+  before_script:  
+    - pip install --upgrade pip  
+    - pip install -r requirements.txt  
+  script:  
+    - pytest --maxfail=1 --disable-warnings -q  
 
-# Estágio de Análise de Dependência com OWASP Dependency-Check
-dependency_check:
-  stage: security
-  image: owasp/dependency-check:latest
-  script:
-    - dependency-check.sh --project "My Project" --scan todo_project/todo_project --out dependency-check-report.html
-  artifacts:
-    paths:
-      - dependency-check-report.html
-    expire_in: 1 week
-  allow_failure: true
+# Estágio de Análise de Dependência com OWASP Dependency-Check  
+dependency_check:  
+  stage: security  
+  image: owasp/dependency-check:latest  
+  script:  
+    - dependency-check.sh --project "My Project" --scan todo_project/todo_project --out dependency-check-report.html  
+  artifacts:  
+    paths:  
+      - dependency-check-report.html  
+    expire_in: 1 week  
+  allow_failure: true  
 
-# Estágio de Análise Dinâmica de Segurança (DAST) com OWASP ZAP
-dast:  
-  stage: deploy  
+# Estágio de Análise Dinâmica de Segurança (DAST) com OWASP ZAP  
+dynamic_security_analysis:  
+  stage: dynamic_security_analysis  
   script:  
     - echo "Stopping any existing OWASP ZAP instances..."  
     - pkill -f 'zap.sh' || true  
@@ -66,18 +67,18 @@ dast:
     paths:  
       - zap-report.html  
     expire_in: 1 week  
-  allow_failure: true
+  allow_failure: true  
 
-# Estágio de Deploy
-deploy:
-  stage: deploy
-  script:
-    - echo "Deploying to production environment..."
-    # Adicione seus comandos de deploy específicos aqui, se necessário
+# Estágio de Deploy  
+deploy:  
+  stage: deploy  
+  script:  
+    - echo "Deploying to production environment..."  
+    # Adicione seus comandos de deploy específicos aqui, se necessário  
 
-# Estágio de Review
-review:
-  stage: review
-  script:
-    - echo "Creating review environment..."
+# Estágio de Review  
+review:  
+  stage: review  
+  script:  
+    - echo "Creating review environment..."  
     # Adicione seus comandos para criar um ambiente de revisão aqui, se necessário
