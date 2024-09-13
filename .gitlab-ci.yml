@@ -5,7 +5,6 @@ stages:
   - security
   - review
   - deploy
-  - dast
 
 # Estágio de Build
 build:
@@ -30,9 +29,9 @@ lint:
 # Estágio de Análise de Dependência com OWASP Dependency-Check
 dependency_check:
   stage: security
-  image: owasp/dependency-check:latest
   script:
-    - dependency-check.sh --project "My Project" --scan todo_project/todo_project --out dependency-check-report.html
+    - pip install dependency-check
+    - dependency-check --project "My Project" --scan todo_project/todo_project --out dependency-check-report.html
   artifacts:
     paths:
       - dependency-check-report.html
@@ -52,37 +51,31 @@ test:
   script:
     - pytest --maxfail=1 --disable-warnings -q
 
-# Revisão: Criação do ambiente temporário para cada merge request
+# Estágio de Revisão
 review:
   stage: review
   script:
-    - echo "Creating review environment"
-    - # Comandos para criar e configurar o ambiente temporário de revisão
-    - # Por exemplo, copiar arquivos, configurar banco de dados, etc.
-  only:
-    - merge_requests
+    - echo "Review environment setup (e.g., deploy to a temporary environment)"
+    # Adicione comandos para criar um ambiente temporário para revisão
 
-# Deploy em Estágio: Implantação no ambiente de stage
-deploy_stage:
+# Estágio de Deploy em Estágio
+deploy:
   stage: deploy
   script:
     - echo "Deploying to staging environment"
-    - # Comandos para implantar no ambiente de staging
-    - # Por exemplo, copiar arquivos, atualizar banco de dados, etc.
-  only:
-    - master
-  when: manual  # Adicione `when: manual` se você precisar de aprovação manual para deploy
+    # Adicione comandos para realizar o deploy no ambiente de staging
 
-# Testes de Segurança Dinâmicos com OWASP ZAP
+# Estágio de Testes de Segurança Dinâmicos (DAST) com OWASP ZAP
 dast:
-  stage: dast
-  image: owasp/zap2docker-stable
+  stage: security
   script:
-    - echo "Running OWASP ZAP DAST"
-    - zap.sh -cmd -quickurl http://your-staging-url -quickout zap_report.html
+    - wget https://github.com/zaproxy/zaproxy/releases/download/v2.12.0/ZAP_2.12.0_Linux.tar.gz
+    - tar -xvzf ZAP_2.12.0_Linux.tar.gz
+    - ./zap/zap.sh -daemon -port 8080
+    - zap-cli quick-scan -r zap_report.html http://localhost:8080
   artifacts:
     paths:
       - zap_report.html
-  only:
-    - master
-  when: manual  # Adicione `when: manual` se você precisar de aprovação manual para os testes
+    expire_in: 1 week
+  dependencies:
+    - deploy
