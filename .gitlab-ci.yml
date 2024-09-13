@@ -58,7 +58,8 @@ dynamic_security_analysis:
   script:  
     - echo "Stopping any existing OWASP ZAP instances..."  
     - pkill -f 'zap.sh' || true  
-    - echo "Starting OWASP ZAP daemon..."  
+    - echo "Starting OWASP ZAP daemon..."
+    - cd /home/werton/ZAP_2.15.0/ && ls -la  
     - /home/werton/ZAP_2.15.0/zap.sh -daemon -host 127.0.0.1 -port 5000 -logfile zap.log &  
     - sleep 60 # Aguarda o ZAP iniciar completamente  
     - echo "Performing DAST scan..."  
