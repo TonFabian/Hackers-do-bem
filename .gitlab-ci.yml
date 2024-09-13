@@ -11,8 +11,8 @@ stages:
 build:
   stage: build
   script:
-    - echo "Starting build process..."
-    # Adicione seus comandos de construção específicos aqui, se necessário
+    - echo "Building Docker image..."
+    - docker build -t my-app-image .
 
 # Estágio de Análise Estática de Código (SAST) com Bandit
 lint:
@@ -55,7 +55,7 @@ dependency_check:
 # Estágio de Análise Dinâmica de Segurança (DAST) com OWASP ZAP
 dynamic_security_analysis:
   stage: dynamic_security_analysis
-  image: my-app-image  # Usa a imagem Docker com o OWASP ZAP configurado
+  image: my-app-image  # Usa a imagem Docker construída localmente
   script:
     - echo "Stopping any existing OWASP ZAP instances..."
     - pkill -f 'zap.sh' || true
@@ -83,4 +83,3 @@ review:
   script:
     - echo "Creating review environment..."
     # Adicione seus comandos para criar um ambiente de revisão aqui, se necessário
-
