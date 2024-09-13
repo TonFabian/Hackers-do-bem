@@ -3,9 +3,8 @@ stages:
   - lint
   - test
   - security
-  - review
   - deploy
-  - dast
+  - review
 
 # Estágio de Build
 build:
@@ -27,18 +26,6 @@ lint:
       - bandit-report.html
     expire_in: 1 week
 
-# Estágio de Análise de Dependência com OWASP Dependency-Check
-dependency_check:
-  stage: security
-  image: owasp/dependency-check:latest
-  script:
-    - dependency-check.sh --project "My Project" --scan todo_project/todo_project --out dependency-check-report.html
-  artifacts:
-    paths:
-      - dependency-check-report.html
-    expire_in: 1 week
-  allow_failure: true
-
 # Estágio de Testes
 test:
   stage: test
@@ -52,28 +39,41 @@ test:
   script:
     - pytest --maxfail=1 --disable-warnings -q
 
-# Estágio de Deploy
-deploy:
+# Estágio de Análise de Dependência com OWASP Dependency-Check
+dependency_check:
+  stage: security
+  image: owasp/dependency-check:latest
+  script:
+    - dependency-check.sh --project "My Project" --scan todo_project/todo_project --out dependency-check-report.html
+  artifacts:
+    paths:
+      - dependency-check-report.html
+    expire_in: 1 week
+  allow_failure: true
+
+# Estágio de Análise Dinâmica de Segurança (DAST) com OWASP ZAP
+dast:
   stage: deploy
   script:
-    - echo "Deploying application..."
-    # Adicione seus comandos de deploy aqui
-
-# Estágio de Revisão
-review:
-  stage: review
-  script:
-    - echo "Creating review environment..."
-    # Adicione seus comandos para criar o ambiente de revisão aqui
-
-# Estágio de Testes de Segurança de Aplicação Dinâmicos (DAST)
-dast:
-  stage: dast
-  image: owasp/zap2docker-stable
-  script:
-    - echo "Starting OWASP ZAP for DAST..."
-    - zap-baseline.py -t http://localhost:8080 -r zap-report.html
+    - echo "Deploying to stage environment..."
+    # Simulação de deploy no ambiente de stage. Ajuste conforme necessário.
+    - echo "Performing DAST scan..."
+    - /path/to/owasp-zap --dast-url http://stage-environment-url --output zap-report.html
   artifacts:
     paths:
       - zap-report.html
     expire_in: 1 week
+
+# Estágio de Deploy
+deploy:
+  stage: deploy
+  script:
+    - echo "Deploying to production environment..."
+    # Adicione seus comandos de deploy específicos aqui, se necessário
+
+# Estágio de Review
+review:
+  stage: review
+  script:
+    - echo "Creating review environment..."
+    # Adicione seus comandos para criar um ambiente de revisão aqui, se necessário
