@@ -51,7 +51,7 @@ dependency_check:
       - dependency-check-report.html  
     expire_in: 1 week  
   allow_failure: true  
-
+ 
 # Estágio de Análise Dinâmica de Segurança (DAST) com OWASP ZAP  
 dynamic_security_analysis:  
   stage: dynamic_security_analysis  
@@ -62,12 +62,12 @@ dynamic_security_analysis:
     - /home/werton/ZAP_2.15.0/zap.sh -daemon -host 127.0.0.1 -port 8080 -logfile zap.log &  
     - sleep 60 # Aguarda o ZAP iniciar completamente  
     - echo "Performing DAST scan..."  
-    - /home/werton/ZAP_2.15.0/zap.sh -cmd -host 127.0.0.1 -port 8080 -quickurl http://stage-environment-url -o zap-report.html  
+    - /home/werton/ZAP_2.15.0/zap.sh -cmd -host 127.0.0.1 -port 8080 -quickurl http://127.0.0.1:5000 -o zap-report.html  
   artifacts:  
     paths:  
       - zap-report.html  
     expire_in: 1 week  
-  allow_failure: true  
+  allow_failure: true
 
 # Estágio de Deploy  
 deploy:  
