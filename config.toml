@@ -1,11 +1,9 @@
 [[runners]]
   name = "docker-runner"
   url = "https://gitlab.com/"
-  token = "glrt-njLa4MWpNxp3Um7EQGWZ"
+  token = "glrt--QnuwtjZxej1LzCiHJWY"
   executor = "docker"
   [runners.docker]
     tls_verify = false
-    image = "my-app-image"  # Imagem Docker local
+    image = "ruby:3.1"
     privileged = true
-    pull_policy = "if-not-present"  # Evita puxar a imagem se estiver disponível localmente
-
