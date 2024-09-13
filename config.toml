@@ -5,6 +5,7 @@
   executor = "docker"
   [runners.docker]
     tls_verify = false
-    image = "ruby:3.1"
+    image = "my-app-image"  # Imagem Docker local
     privileged = true
+    pull_policy = "if-not-present"  # Evita puxar a imagem se estiver disponível localmente
 
