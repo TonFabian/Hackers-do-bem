@@ -52,20 +52,20 @@ dependency_check:
   allow_failure: true
 
 # Estágio de Análise Dinâmica de Segurança (DAST) com OWASP ZAP
-dast:
-  stage: deploy
-  script:
-    - echo "Stopping any existing OWASP ZAP instances..."
-    - pkill -f 'zap.sh' || true
-    - echo "Starting OWASP ZAP daemon..."
-    - /home/werton/Task-Manager-using-Flask/ZAP_2.15.0/zap.sh -daemon -host 127.0.0.1 -port 8080 &
-    - sleep 60 # Aguarda o ZAP iniciar completamente
-    - echo "Performing DAST scan..."
-    - /home/werton/Task-Manager-using-Flask/ZAP_2.15.0/zap.sh -cmd -host 127.0.0.1 -port 8080 -quickurl http://stage-environment-url -o zap-report.html
-  artifacts:
-    paths:
-      - zap-report.html
-    expire_in: 1 week
+dast:  
+  stage: deploy  
+  script:  
+    - echo "Stopping any existing OWASP ZAP instances..."  
+    - pkill -f 'zap.sh' || true  
+    - echo "Starting OWASP ZAP daemon..."  
+    - /home/werton/ZAP_2.15.0/zap.sh -daemon -host 127.0.0.1 -port 8080 -logfile zap.log &  
+    - sleep 60 # Aguarda o ZAP iniciar completamente  
+    - echo "Performing DAST scan..."  
+    - /home/werton/ZAP_2.15.0/zap.sh -cmd -host 127.0.0.1 -port 8080 -quickurl http://stage-environment-url -o zap-report.html  
+  artifacts:  
+    paths:  
+      - zap-report.html  
+    expire_in: 1 week  
   allow_failure: true
 
 # Estágio de Deploy
