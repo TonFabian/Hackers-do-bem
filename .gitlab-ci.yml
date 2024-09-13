@@ -3,6 +3,9 @@ stages:
   - lint
   - test
   - security
+  - review
+  - deploy
+  - dast
 
 # Estágio de Build
 build:
@@ -48,3 +51,38 @@ test:
     - pip install -r requirements.txt
   script:
     - pytest --maxfail=1 --disable-warnings -q
+
+# Revisão: Criação do ambiente temporário para cada merge request
+review:
+  stage: review
+  script:
+    - echo "Creating review environment"
+    - # Comandos para criar e configurar o ambiente temporário de revisão
+    - # Por exemplo, copiar arquivos, configurar banco de dados, etc.
+  only:
+    - merge_requests
+
+# Deploy em Estágio: Implantação no ambiente de stage
+deploy_stage:
+  stage: deploy
+  script:
+    - echo "Deploying to staging environment"
+    - # Comandos para implantar no ambiente de staging
+    - # Por exemplo, copiar arquivos, atualizar banco de dados, etc.
+  only:
+    - master
+  when: manual  # Adicione `when: manual` se você precisar de aprovação manual para deploy
+
+# Testes de Segurança Dinâmicos com OWASP ZAP
+dast:
+  stage: dast
+  image: owasp/zap2docker-stable
+  script:
+    - echo "Running OWASP ZAP DAST"
+    - zap.sh -cmd -quickurl http://your-staging-url -quickout zap_report.html
+  artifacts:
+    paths:
+      - zap_report.html
+  only:
+    - master
+  when: manual  # Adicione `when: manual` se você precisar de aprovação manual para os testes
