@@ -57,7 +57,6 @@ dependency_check:
     expire_in: 1 week
   allow_failure: true
 
-# Estágio de Análise Dinâmica de Segurança (DAST) com OWASP ZAP
 dynamic_security_analysis:
   stage: dynamic_security_analysis
   image: docker:latest
@@ -65,17 +64,18 @@ dynamic_security_analysis:
     - docker:dind
   script:
     - echo "Stopping any existing OWASP ZAP instances..."
-    - docker stop zap || true
+    - docker rm -f zap || true
     - echo "Starting OWASP ZAP daemon..."
-    - docker run --rm -d --name zap -v /home/werton/ZAP_2.15.0:/zap -w /zap my-app-image ./zap.sh -daemon -host 127.0.0.1 -port 5000 -logfile zap.log
+    - docker run --rm -d --name zap -v /home/werton/ZAP_2.15.0:/zap -w /zap zap-image ./zap.sh -daemon -host 127.0.0.1 -port 5000 -logfile zap.log
     - sleep 60 # Aguarda o ZAP iniciar completamente
     - echo "Performing DAST scan..."
-    - docker run --rm my-app-image ./zap.sh -cmd -host 127.0.0.1 -port 5000 -quickurl http://127.0.0.1:5000 -o zap-report.html
+    - docker run --rm zap-image ./zap.sh -cmd -host 127.0.0.1 -port 5000 -quickurl http://127.0.0.1:5000 -o zap-report.html
   artifacts:
     paths:
       - zap-report.html
     expire_in: 1 week
   allow_failure: true
+
 
 # Estágio de Deploy
 deploy:
