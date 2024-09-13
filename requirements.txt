@@ -1,6 +1,5 @@
 alembic==1.13.2
 appdirs==1.4.4
-apturl==0.5.2
 alembic==1.13.2
 appdirs==1.4.4
 bandit==1.7.9
