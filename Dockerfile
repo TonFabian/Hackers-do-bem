@@ -16,13 +16,3 @@ WORKDIR /ZAP_2.15.0
 
 # Comando padrão
 ENTRYPOINT ["./zap.sh"]
-
-[[runners]]
-  name = "docker-runner"
-  url = "https://gitlab.com/"
-  token = "glrt-njLa4MWpNxp3Um7EQGWZ"
-  executor = "docker"
-  [runners.docker]
-    tls_verify = false
-    image = "ruby:3.1"
-    privileged = true
