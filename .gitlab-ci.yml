@@ -48,9 +48,10 @@ zap-full-scan:
     name: zaproxy/zap-stable:2.15.0
     entrypoint: [""]
   script:
-    - echo "Running OWASP ZAP scan..."
-    - cd ./zap
-    - mkdir -p /zap/wrk               # Garante que o diretório /zap/wrk exista
+    - echo "Running OWASP ZAP scan...
+    - pwd
+    - mkdir zap
+    - cd ./zap               # Garante que o diretório /zap/wrk exista
     - bash ./zap/zap_full_scan.sh      # Executa o script de scan
     - echo "Listing files in /zap/wrk/..."
     - ls -l /zap/wrk/                 # Lista arquivos para depuração
