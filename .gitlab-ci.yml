@@ -52,6 +52,7 @@ zap-full-scan:
     ZAP_ALERT_REPORT: quick_scan_alert_report
     ZAP_REPORT: quick_scan_report
   script:
+    - mkdir -p /zap/wrk/               # Cria o diretório antes de copiar arquivos
     - cp -r /zap/* /zap/wrk/
     - bash /zap/zap_full_scan.sh
   only:
@@ -77,4 +78,3 @@ review:
   script:
     - echo "Creating review environment..."
     # Adicione seus comandos para criar um ambiente de revisão aqui, se necessário
-
