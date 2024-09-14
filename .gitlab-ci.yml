@@ -63,16 +63,18 @@ dynamic_security_analysis:
   image: docker:latest
   services:
     - docker:dind
+  variables:
+    DOCKER_DRIVER: overlay2
   script:
     - echo "Building Docker image..."
     - docker build -t my-app-image .
     - echo "Stopping any existing OWASP ZAP instances..."
     - docker rm -f zap || true
     - echo "Starting OWASP ZAP daemon..."
-    - docker run --rm -d --name zap -p 8080:8080 -v /home/werton/Task-Manager-using-Flask/zap:/zap -w /zap my-app-image ./zap -daemon -host 0.0.0.0 -port 8080 -logfile zap.log
+    - docker run --rm -d --name zap -p 8080:8080 -v /home/werton/Task-Manager-using-Flask/zap:/zap -w /zap my-app-image ./zap.sh -daemon -host 0.0.0.0 -port 8080 -logfile zap.log
     - sleep 60 # Aguarda o ZAP iniciar completamente
     - echo "Performing DAST scan..."
-    - docker run --rm my-app-image ./zap -cmd -host 0.0.0.0 -port 8080 -quickurl http://127.0.0.1:5000 -o zap-report.html
+    - docker run --rm my-app-image ./zap.sh -cmd -host 0.0.0.0 -port 8080 -quickurl http://127.0.0.1:5000 -o zap-report.html
   artifacts:
     paths:
       - zap-report.html
