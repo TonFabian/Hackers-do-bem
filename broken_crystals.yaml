@@ -1,0 +1,45 @@
+contexts:
+  users:
+    - name: "admin"
+      credentials:
+        password: "PASSWORD"   # Substitua isso pelo valor real ou por uma variável
+        username: "USERNAME"   # Substitua isso pelo valor real ou por uma variável
+
+  - parameters:
+      template: "traditional-html"
+      reportDir: "/zap/wrk"  # Caminho correto atualizado para o contêiner
+      reportFile: "${ZAP_REPORT}"  # Utilizando variável para o nome do relatório
+      reportTitle: "ZAP Baseline Scan Report"
+      reportDescription: ""
+      displayReport: false
+    risks:
+      - "info"
+      - "low"
+      - "medium"
+      - "high"
+    confidences:
+      - "falsepositive"
+      - "low"
+      - "medium"
+      - "high"
+      - "confirmed"
+    sections:
+      - "instancecount"
+      - "alertdetails"
+      - "alertcount"
+    name: "report"
+    type: "report"
+
+  - parameters:
+      template: "traditional-md"
+      reportDir: "/zap/wrk"  # Caminho correto atualizado para o contêiner
+      reportFile: "${ZAP_ALERT_REPORT}"  # Utilizando variável para o nome do relatório de alertas
+      reportTitle: "ZAP Scanning Report"
+      reportDescription: "This is a report that should contain only alerts that should fail the pipeline and be revisited by a team member"
+      displayReport: false
+    risks:
+      - "low"
+      - "medium"
+      - "high"
+      - "info"
+
