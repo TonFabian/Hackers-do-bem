@@ -43,7 +43,7 @@ test:
 
 # Estágio de Análise de Segurança Dinâmica com OWASP ZAP
 zap-full-scan:
-  stage: test
+  stage: scan
   image:
     name: zaproxy/zap-stable:2.15.0
     entrypoint: [""]
@@ -52,7 +52,8 @@ zap-full-scan:
     ZAP_ALERT_REPORT: quick_scan_alert_report
     ZAP_REPORT: quick_scan_report
   script:
-    - bash zap_full_scan.sh
+    - cp -r /zap/* /zap/wrk/
+    - bash /zap/zap_full_scan.sh
   only:
     refs:
       - branches
@@ -60,8 +61,8 @@ zap-full-scan:
     when: always
     expire_in: 1 week
     paths:
-      - ${CI_PROJECT_DIR}/${ZAP_REPORT}.html
-      - ${CI_PROJECT_DIR}/${ZAP_ALERT_REPORT}.md
+      - wrk/quick_scan_report.html
+      - wrk/quick_scan_alert_report.md
 
 # Estágio de Deploy
 deploy:
@@ -76,3 +77,4 @@ review:
   script:
     - echo "Creating review environment..."
     # Adicione seus comandos para criar um ambiente de revisão aqui, se necessário
+
