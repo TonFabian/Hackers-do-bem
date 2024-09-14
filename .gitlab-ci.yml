@@ -48,10 +48,13 @@ zap-full-scan:
     name: zaproxy/zap-stable:2.15.0
     entrypoint: [""]
   script:
-    - mkdir -p /zap/wrk               # Cria o diretório antes de copiar arquivos
-    - cp -r /zap/* /zap/wrk/          # Copia arquivos para o diretório correto
-    - bash /zap/zap_full_scan.sh
-    - ls -l /zap/wrk/                  # Listar arquivos para depuração
+    - echo "Running OWASP ZAP scan..."
+    - mkdir -p /zap/wrk               # Garante que o diretório /zap/wrk exista
+    - bash /zap/zap_full_scan.sh      # Executa o script de scan
+    - echo "Listing files in /zap/wrk/..."
+    - ls -l /zap/wrk/                 # Lista arquivos para depuração
+    - echo "Displaying content of quick_scan_alert_report.md..."
+    - cat /zap/wrk/quick_scan_alert_report.md || echo "quick_scan_alert_report.md not found"
   only:
     refs:
       - branches
