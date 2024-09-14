@@ -14,6 +14,9 @@ stages:
 # Estágio de Build
 build:
   stage: build
+  image: docker:latest
+  services:
+    - docker:dind
   script:
     - echo "Building Docker image..."
     - docker build -t my-app-image .
@@ -21,7 +24,6 @@ build:
 # Estágio de Análise Estática de Código (SAST) com Bandit
 lint:
   stage: lint
-  image: python:3.9
   script:
     - pip install --upgrade pip
     - pip install bandit
@@ -34,14 +36,9 @@ lint:
 # Estágio de Testes
 test:
   stage: test
-  image: python:3.9
-  cache:
-    paths:
-      - .cache/pip
-  before_script:
+  script:
     - pip install --upgrade pip
     - pip install -r requirements.txt
-  script:
     - pytest --maxfail=1 --disable-warnings -q
 
 # Estágio de Análise de Segurança Dinâmica com OWASP ZAP
@@ -56,9 +53,6 @@ zap-full-scan:
     ZAP_REPORT: full_scan
   script:
     - bash zap_full_scan.sh
-  only:
-    refs:
-      - branches
   artifacts:
     when: always
     expire_in: 1 week
