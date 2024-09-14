@@ -48,7 +48,7 @@ zap-full-scan:
     name: zaproxy/zap-stable:2.15.0
     entrypoint: [""]
   script:
-    - echo "Running OWASP ZAP scan...
+    - echo "Running OWASP ZAP scan..."
     - mkdir zap
     - cd zap               # Garante que o diretório /zap/wrk exista
     - bash ./zap_full_scan.sh      # Executa o script de scan
