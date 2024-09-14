@@ -47,43 +47,45 @@ zap-full-scan:
   image:
     name: zaproxy/zap-stable:2.15.0
     entrypoint: [""]
-  script:
-    - echo "Running OWASP ZAP scan..."
-    - mkdir zap # Garante que o diretório /zap/wrk exista
-    - cd zap
-    - touch zap_full_scan.sh
-    - echo 'zap-full-scan:
-  stage: scan
-  image:
-    name: zaproxy/zap-stable:2.15.0
-    entrypoint: [""]
   variables:
     CI_PROJECT_DIR: /zap/wrk
     ZAP_ALERT_REPORT: quick_scan_alert_report
     ZAP_REPORT: quick_scan_report
   script:
-    - echo "Copying files from /zap to /zap/wrk..."
+    - echo "Running OWASP ZAP scan..."
     - mkdir -p /zap/wrk  # Garante que o diretório /zap/wrk exista
     - cp -r /zap/* /zap/wrk/
-    - echo "Running OWASP ZAP scan..."
-    - bash /zap/zap_full_scan.sh
-    - echo "Listing files in /zap/wrk/..."
-    - ls -l /zap/wrk/
-    - echo "Displaying content of quick_scan_alert_report.md..."
-    - cat /zap/wrk/quick_scan_alert_report.md || echo "quick_scan_alert_report.md not found"
-  only:
-    refs:
-      - branches
-  artifacts:
-    when: always
-    expire_in: 1 week
-    paths:
-      - wrk/quick_scan_report.html
-      - wrk/quick_scan_alert_report.md' >> zap_full_scan.sh
+    - touch zap_full_scan.sh
+    - echo 'zap-full-scan:
+      stage: scan
+      image:
+        name: zaproxy/zap-stable:2.15.0
+        entrypoint: [""]
+      variables:
+        CI_PROJECT_DIR: /zap/wrk
+        ZAP_ALERT_REPORT: quick_scan_alert_report
+        ZAP_REPORT: quick_scan_report
+      script:
+        - echo "Running OWASP ZAP scan..."
+        - mkdir -p /zap/wrk
+        - cp -r /zap/* /zap/wrk/
+        - bash /zap/zap_full_scan.sh
+        - echo "Listing files in /zap/wrk/..."
+        - ls -l /zap/wrk/
+        - echo "Displaying content of quick_scan_alert_report.md..."
+        - cat /zap/wrk/quick_scan_alert_report.md || echo "quick_scan_alert_report.md not found"
+      only:
+        refs:
+          - branches
+      artifacts:
+        when: always
+        expire_in: 1 week
+        paths:
+          - wrk/quick_scan_report.html
+          - wrk/quick_scan_alert_report.md' > zap_full_scan.sh
     - chmod 777 zap_full_scan.sh
     - bash ./zap_full_scan.sh # Executa o script de scan
     - echo "Listing files in /zap/wrk/..."
-    - pwd
     - ls -l /zap/wrk/ # Lista arquivos para depuração
     - echo "Displaying content of quick_scan_alert_report.md..."
     - cat /zap/wrk/quick_scan_alert_report.md || echo "quick_scan_alert_report.md not found"
@@ -110,3 +112,4 @@ review:
   script:
     - echo "Creating review environment..."
     # Adicione seus comandos para criar um ambiente de revisão aqui, se necessário
+
