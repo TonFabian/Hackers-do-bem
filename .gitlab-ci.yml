@@ -49,8 +49,9 @@ zap-full-scan:
     entrypoint: [""]
   script:
     - echo "Running OWASP ZAP scan..."
+    - cd ./zap
     - mkdir -p /zap/wrk               # Garante que o diretório /zap/wrk exista
-    - bash /zap/zap_full_scan.sh      # Executa o script de scan
+    - bash ./zap/zap_full_scan.sh      # Executa o script de scan
     - echo "Listing files in /zap/wrk/..."
     - ls -l /zap/wrk/                 # Lista arquivos para depuração
     - echo "Displaying content of quick_scan_alert_report.md..."
