@@ -49,11 +49,11 @@ zap-full-scan:
     entrypoint: [""]
   script:
     - echo "Running OWASP ZAP scan...
-    - pwd
     - mkdir zap
-    - cd ./zap               # Garante que o diretório /zap/wrk exista
-    - bash ./zap/zap_full_scan.sh      # Executa o script de scan
+    - cd zap               # Garante que o diretório /zap/wrk exista
+    - bash ./zap_full_scan.sh      # Executa o script de scan
     - echo "Listing files in /zap/wrk/..."
+    - pwd
     - ls -l /zap/wrk/                 # Lista arquivos para depuração
     - echo "Displaying content of quick_scan_alert_report.md..."
     - cat /zap/wrk/quick_scan_alert_report.md || echo "quick_scan_alert_report.md not found"
