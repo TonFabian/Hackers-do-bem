@@ -50,7 +50,7 @@ zap-full-scan:
   script:
     - echo "Running OWASP ZAP scan..."
     - mkdir zap
-    - cd zap               # Garante que o diretório /zap/wrk exista
+   * - cd zap               # Garante que o diretório /zap/wrk exista
     - bash ./zap_full_scan.sh      # Executa o script de scan
     - echo "Listing files in /zap/wrk/..."
     - pwd
