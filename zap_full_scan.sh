@@ -11,7 +11,12 @@ zap-full-scan:
     - echo "Copying files from /zap to /zap/wrk..."
     - mkdir -p /zap/wrk  # Garante que o diretório /zap/wrk exista
     - cp -r /zap/* /zap/wrk/
+    - echo "Running OWASP ZAP scan..."
     - bash /zap/zap_full_scan.sh
+    - echo "Listing files in /zap/wrk/..."
+    - ls -l /zap/wrk/
+    - echo "Displaying content of quick_scan_alert_report.md..."
+    - cat /zap/wrk/quick_scan_alert_report.md || echo "quick_scan_alert_report.md not found"
   only:
     refs:
       - branches
@@ -21,3 +26,4 @@ zap-full-scan:
     paths:
       - wrk/quick_scan_report.html
       - wrk/quick_scan_alert_report.md
+

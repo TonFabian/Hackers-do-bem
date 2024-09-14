@@ -47,14 +47,11 @@ zap-full-scan:
   image:
     name: zaproxy/zap-stable:2.15.0
     entrypoint: [""]
-  variables:
-    CI_PROJECT_DIR: /zap/wrk
-    ZAP_ALERT_REPORT: quick_scan_alert_report
-    ZAP_REPORT: quick_scan_report
   script:
-    - mkdir -p /zap/wrk/               # Cria o diretório antes de copiar arquivos
-    - cp -r /zap/* /zap/wrk/
+    - mkdir -p /zap/wrk               # Cria o diretório antes de copiar arquivos
+    - cp -r /zap/* /zap/wrk/          # Copia arquivos para o diretório correto
     - bash /zap/zap_full_scan.sh
+    - ls -l /zap/wrk/                  # Listar arquivos para depuração
   only:
     refs:
       - branches
@@ -78,3 +75,4 @@ review:
   script:
     - echo "Creating review environment..."
     # Adicione seus comandos para criar um ambiente de revisão aqui, se necessário
+
