@@ -1,0 +1,52 @@
+contexts:
+  users:
+    - name: "admin"
+      credentials:
+        password: "PASSWORD"   # Substitua isso pelo valor real ou por uma variável
+        username: "USERNAME"   # Substitua isso pelo valor real ou por uma variável
+- parameters:
+    template: "traditional-html"
+    reportDir: "CI_PROJECT_DIR"          # Deve ser substituído pelo caminho correto, como '/zap/wrk'
+    reportFile: "ZAP_REPORT"             # Deve corresponder ao nome do relatório gerado, como 'quick_scan_report'
+    reportTitle: "ZAP Baseline Scan Report"
+    reportDescription: ""
+    displayReport: false
+  risks:
+    - "info"
+    - "low"
+    - "medium"
+    - "high"
+  confidences:
+    - "falsepositive"
+    - "low"
+    - "medium"
+    - "high"
+    - "confirmed"
+  sections:
+    - "instancecount"
+    - "alertdetails"
+    - "alertcount"
+  name: "report"
+  type: "report"
+
+- parameters:
+    template: "traditional-md"
+    reportDir: "CI_PROJECT_DIR"          # Deve ser substituído pelo caminho correto, como '/zap/wrk'
+    reportFile: "ZAP_ALERT_REPORT"       # Deve corresponder ao nome do relatório de alertas, como 'quick_scan_alert_report'
+    reportTitle: "ZAP Scanning Report"
+    reportDescription: "This is a report that should contain only alerts that should fail the pipeline and be revisited by a team member"
+    displayReport: false
+  risks:
+    - "low"
+    - "medium"
+    - "high"
+  confidences:
+    - "low"
+    - "medium"
+    - "high"
+    - "confirmed"
+  sections:
+    - "alertdetails"
+    - "alertcount"
+  name: "alert-report"
+  type: "report"

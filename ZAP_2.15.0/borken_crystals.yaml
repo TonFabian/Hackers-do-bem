@@ -1,7 +1,0 @@
-- url: "http://127.0.0.1:5000/"
-  name: "Example Scan"
-  context: "default"
-  policy: "default"
-  max_children: 10
-  max_depth: 5
-  report_dir: "/zap/wrk/reports"

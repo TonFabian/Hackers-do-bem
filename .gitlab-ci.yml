@@ -43,16 +43,19 @@ test:
 
 # Estágio de Análise de Segurança Dinâmica com OWASP ZAP
 zap-full-scan:
-  stage: scan
+  stage: test
   image:
-    name: owasp/zap2docker-stable:latest
+    name: zaproxy/zap-stable:2.15.0
     entrypoint: [""]
   variables:
-    CI_PROJECT_DIR: path_to_project_dir
-    ZAP_ALERT_REPORT: alert_report
-    ZAP_REPORT: full_scan
+    CI_PROJECT_DIR: /zap/wrk
+    ZAP_ALERT_REPORT: quick_scan_alert_report
+    ZAP_REPORT: quick_scan_report
   script:
     - bash zap_full_scan.sh
+  only:
+    refs:
+      - branches
   artifacts:
     when: always
     expire_in: 1 week

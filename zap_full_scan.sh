@@ -1,22 +1,27 @@
 #!/bin/bash
 
-# Substitua os placeholders com variáveis do CI/CD
-sed -i "s/PASSWORD/$PASSWORD/g" zap/broken_crystals.yaml
-sed -i "s/USERNAME/$USERNAME/g" zap/broken_crystals.yaml
-sed -i "s/ZAP_REPORT/$ZAP_REPORT/g" zap/broken_crystals.yaml
-
-# Note: Escapa o caminho do projeto para evitar problemas com caracteres especiais
+# NOTE:
+# We need this because the variable contains / in it.
+# More info here https://unix.stackexchange.com/questions/255789/is-there-a-way-to-prevent-sed-from-interpreting-the-replacement-string/255869#255869
 ESCAPED_CI_PROJECT_DIR=$(sed -e 's/[&\\/]/\\&/g; s/$/\\/' -e '$s/\\$//' <<<"$CI_PROJECT_DIR")
-sed -i "s/CI_PROJECT_DIR/$ESCAPED_CI_PROJECT_DIR/g" zap/broken_crystals.yaml
+sed -i "s/CI_PROJECT_DIR/$ESCAPED_CI_PROJECT_DIR/g" zap/zap_config.conf
 
-sed -i "s/ZAP_ALERT_REPORT/$ZAP_ALERT_REPORT/g" zap/broken_crystals.yaml
+ESCAPED_TARGET=$(sed -e 's/[&\\/]/\\&/g; s/$/\\/' -e '$s/\\$//' <<<"$TARGET")
+sed -i "s/TARGET/$ESCAPED_TARGET/g" zap/context.context
 
-/zap/zap.sh -cmd -autorun $CI_PROJECT_DIR/zap/broken_crystals.yaml
+# Execução do ZAP com o script zap-full-scan.py
+docker run -it --rm --name zap-container -v $CI_PROJECT_DIR:/zap/wrk -p 8080:8080 zaproxy/zap-stable:2.15.0 /zap/zap-full-scan.py -d \
+                      -t https://brokencrystals.com \
+                      -r /zap/wrk/$ZAP_REPORT.html \
+                      -w /zap/wrk/$ZAP_ALERT_REPORT.md \
+                      -n /zap/wrk/zap/context.context \
+                      -U $USERNAME
 
+# Verificação de resultados
 returnCode=0
-if grep -q "Instances" $ZAP_ALERT_REPORT; then
-  head -n 20 $ZAP_ALERT_REPORT
-  echo "DAST RESULT: There are some vulnerabilities that ZAP has found (those visible here may not be the only ones). See the detailed report for more information." 
+if grep -q "Instances" $CI_PROJECT_DIR/$ZAP_ALERT_REPORT.md; then
+  head -n 20 $CI_PROJECT_DIR/$ZAP_ALERT_REPORT.md
+  echo "DAST RESULT: There are some vulnerabilities that ZAP has found (those visible here may not be the only ones). See the detailed report for more information."
   returnCode=1
 fi
 
