@@ -1,4 +1,4 @@
-image: docker:latest
+image: python:3.9
 
 services:
   - docker:dind
@@ -7,8 +7,7 @@ stages:
   - build
   - lint
   - test
-  - security
-  - dynamic_security_analysis
+  - scan
   - deploy
   - review
 
@@ -45,41 +44,27 @@ test:
   script:
     - pytest --maxfail=1 --disable-warnings -q
 
-# Estágio de Análise de Dependência com OWASP Dependency-Check
-dependency_check:
-  stage: security
-  image: owasp/dependency-check:latest
-  script:
-    - dependency-check.sh --project "My Project" --scan todo_project/todo_project --out dependency-check-report.html
-  artifacts:
-    paths:
-      - dependency-check-report.html
-    expire_in: 1 week
-  allow_failure: true
-
-# Estágio de Análise Dinâmica de Segurança (DAST) com OWASP ZAP
-dynamic_security_analysis:
-  stage: dynamic_security_analysis
-  image: docker:latest
-  services:
-    - docker:dind
+# Estágio de Análise de Segurança Dinâmica com OWASP ZAP
+zap-full-scan:
+  stage: scan
+  image:
+    name: owasp/zap2docker-stable:latest
+    entrypoint: [""]
   variables:
-    DOCKER_DRIVER: overlay2
+    CI_PROJECT_DIR: path_to_project_dir
+    ZAP_ALERT_REPORT: alert_report
+    ZAP_REPORT: full_scan
   script:
-    - echo "Building Docker image..."
-    - docker build -t my-app-image .
-    - echo "Stopping any existing OWASP ZAP instances..."
-    - docker rm -f zap || true
-    - echo "Starting OWASP ZAP daemon..."
-    - docker run --rm -d --name zap -p 8080:8080 -v /home/werton/Task-Manager-using-Flask/zap:/zap -w /zap my-app-image ./zap.sh -daemon -host 0.0.0.0 -port 8080 -logfile zap.log
-    - sleep 60 # Aguarda o ZAP iniciar completamente
-    - echo "Performing DAST scan..."
-    - docker run --rm my-app-image ./zap.sh -cmd -host 0.0.0.0 -port 8080 -quickurl http://127.0.0.1:5000 -o zap-report.html
+    - bash zap_full_scan.sh
+  only:
+    refs:
+      - branches
   artifacts:
-    paths:
-      - zap-report.html
+    when: always
     expire_in: 1 week
-  allow_failure: true
+    paths:
+      - ${CI_PROJECT_DIR}/${ZAP_REPORT}.html
+      - ${CI_PROJECT_DIR}/${ZAP_ALERT_REPORT}.md
 
 # Estágio de Deploy
 deploy:
