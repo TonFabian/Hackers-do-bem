@@ -37,12 +37,12 @@ fi
 
 # Inicie o scan ativo
 echo "Iniciando o OWASP ZAP Scan..."
-SCAN_URL="http://${ZAP_HOST}:${ZAP_PORT}/json/ascan/action/scan/?url=${TARGET_URL}&recurse=true&insect=true&apikey=${ZAP_API_KEY}"
-echo "Executando comando: curl -s \"$SCAN_URL\""
+SCAN_URL= "http://${ZAP_HOST}:${ZAP_PORT}/json/ascan/action/scan/?url=${TARGET_URL}&recurse=true&insect=true&apikey=${ZAP_API_KEY}"
+echo "Executando comando: curl -s \${SCAN_URL}"
 curl -s "$SCAN_URL"
 if [ $? -ne 0 ]; then
     echo "Falha ao iniciar o scan. Verifique a URL e a chave da API."
-    exit 1
+    exit 1 
 fi
 
 # Aguardar o scan terminar (ajuste o tempo de espera conforme necessário)
@@ -52,7 +52,7 @@ sleep 600  # Aguardar 10 minutos para o scan (ajuste conforme necessário)
 # Gere o relatório de alertas
 echo "Gerando relatório de alertas..."
 REPORT_URL="http://${ZAP_HOST}:${ZAP_PORT}/JSON/core/action/htmlreport/?apikey=${ZAP_API_KEY}"
-echo "Executando comando: curl -s \"$REPORT_URL\" -o ${SCAN_REPORT}"
+echo "Executando comando: curl -s \${REPORT_URL}\ -o ${SCAN_REPORT}"
 curl -s "$REPORT_URL" -o ${SCAN_REPORT}
 if [ $? -ne 0 ]; then
     echo "Falha ao gerar o relatório. Verifique a URL e a chave da API."
