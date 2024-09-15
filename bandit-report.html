@@ -80,7 +80,7 @@ pre {
         <div class="metrics-title">
             Metrics:<br>
         </div>
-        Total lines of code: <span id="loc">204</span><br>
+        Total lines of code: <span id="loc">208</span><br>
         Total lines skipped (#nosec): <span id="nosec">0</span>
     </div>
 </div>
@@ -107,28 +107,6 @@ pre {
 14	app = Flask(__name__)
 15	app.config[&#x27;SECRET_KEY&#x27;] = &#x27;45cf93c4d41348cd9980674ade9a7356&#x27;
 16	app.config[&#x27;SQLALCHEMY_TRACK_MODIFICATIONS&#x27;] = False
-</pre>
-</div>
-
-
-</div>
-</div>
-
-<div id="issue-1">
-<div class="issue-block issue-sev-low">
-    <b>assert_used: </b> Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.<br>
-    <b>Test ID:</b> B101<br>
-    <b>Severity: </b>LOW<br>
-    <b>Confidence: </b>HIGH<br>
-    <b>CWE: </b><a href="https://cwe.mitre.org/data/definitions/703.html" target="_blank">CWE-703</a><br>
-    <b>File: </b><a href="todo_project/todo_project/py_test.py" target="_blank">todo_project/todo_project/py_test.py</a><br>
-    <b>Line number: </b>3<br>
-    <b>More info: </b><a href="https://bandit.readthedocs.io/en/1.7.9/plugins/b101_assert_used.html" target="_blank">https://bandit.readthedocs.io/en/1.7.9/plugins/b101_assert_used.html</a><br>
-
-<div class="code">
-<pre>
-2	def test_example():
-3	    assert 1 + 1 == 2
 </pre>
 </div>
 

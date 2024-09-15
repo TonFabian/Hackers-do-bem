@@ -59,8 +59,7 @@ scan:
     when: always
     expire_in: 1 week
     paths:
-      - ./zap_data/scan-report.html
-      - ./zap_data/quick_scan_alert_report.md
+      - /zap/wrk/scan-report.html
   after_script:
     - echo "If artifacts not found, this step ensures the pipeline continues."
 
