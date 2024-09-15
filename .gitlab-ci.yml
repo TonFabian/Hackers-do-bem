@@ -50,6 +50,7 @@ scan:
     - docker:dind
   script:
     - echo "Running OWASP ZAP scan..."
+    - mkdir -p ./zap_data  # Cria o diretório se não existir
     - docker-compose -f docker-compose.yml up --abort-on-container-exit || true
     - echo "Checking if scan-report.html was created..."
     - if [ -f ./zap_data/scan-report.html ]; then echo "Report found"; else echo "Report not found"; fi
@@ -59,7 +60,8 @@ scan:
     when: always
     expire_in: 1 week
     paths:
-      - /zap/wrk/scan-report.html
+      - zap_data/scan-report.html
+      - zap_data/quick_scan_alert_report.md
   after_script:
     - echo "If artifacts not found, this step ensures the pipeline continues."
 
@@ -77,8 +79,9 @@ monitor:
 deploy:
   stage: deploy
   script:
-    - echo "Deploying to production environment..."
-    # Adicione seus comandos de deploy específicos aqui, se necessário
+    - echo "Deploying application..."
+    # Adicione aqui os comandos para o estágio de deploy.
+
 
 # Estágio de Review
 review:

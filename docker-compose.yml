@@ -5,8 +5,8 @@ services:
     ports:
       - "8080:8080"
     volumes:
-      - ./zap_data:/zap/xml  # Alterado o volume para mapear para o diretório xml
-    command: zap-baseline.py -t https://8f84-24-152-27-101.ngrok-free.app/ -r /zap/xml/scan-report.html
+      - ./zap_data:/zap/wrk  # Mapeia o diretório wrk
+    command: zap-baseline.py -t https://8f84-24-152-27-101.ngrok-free.app/ -r /zap
 
   loki:
     image: grafana/loki:2.8.0
