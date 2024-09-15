@@ -40,6 +40,8 @@ test:
     - pip install --upgrade pip
     - pip install -r requirements.txt
     - pytest --maxfail=1 --disable-warnings -q
+
+# Estágio de Scan
 scan:
   stage: scan
   image: docker:latest
@@ -48,12 +50,13 @@ scan:
   script:
     - echo "Running OWASP ZAP scan..."
     - docker-compose -f docker-compose.yml up --abort-on-container-exit
+    - echo "Listing files in the scan report directory..."
+    - ls ./zap_data  # Ajuste o caminho conforme necessário
   artifacts:
     when: always
     expire_in: 1 week
     paths:
-      - scan-report.html
-
+      - ./zap_data/scan-report.html
 
 # Estágio de Deploy
 deploy:
