@@ -1,12 +1,10 @@
-version: '3.8'
-
+version: '3'
 services:
   zap:
-    image: minha_imagem_zap
-    container_name: my_zap_container
+    image: zaproxy/zap-stable:2.15.0
     ports:
       - "8080:8080"
     volumes:
-      - ./zap_data:/zap/wrk  # Verifique este caminho
-    entrypoint: ["/zap/zap.sh", "-daemon", "-host", "0.0.0.0"]
+      - ./:/zap/wrk
+    command: zap-baseline.py -t https://a2ff-24-152-27-101.ngrok-free.app/ -r /zap/wrk/scan-report.html
 
