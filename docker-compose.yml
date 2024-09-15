@@ -5,6 +5,27 @@ services:
     ports:
       - "8080:8080"
     volumes:
-      - ./zap_data::/zap/wrk
+      - ./zap_data:/zap/wrk
     command: zap-baseline.py -t https://a2ff-24-152-27-101.ngrok-free.app/ -r /zap/wrk/scan-report.html
+
+  loki:
+    image: grafana/loki:2.8.0
+    container_name: loki
+    ports:
+      - "3100:3100"
+    volumes:
+      - ./loki-config.yml:/etc/loki/loki-config.yml
+
+  grafana:
+    image: grafana/grafana:9.0.0
+    container_name: grafana
+    ports:
+      - "3000:3000"
+    depends_on:
+      - loki
+    volumes:
+      - grafana-data:/var/lib/grafana
+
+volumes:
+  grafana-data:
 
