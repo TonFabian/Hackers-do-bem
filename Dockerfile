@@ -5,7 +5,7 @@ FROM zaproxy/zap-stable:2.15.0
 WORKDIR /zap
 
 # Cria um diretório dentro do container
-RUN mkdir -p /zap/wrk
+RUN mkdir -p /zap/wrk && chmod -R 777 /zap/wrk
 
 # Copia arquivos da máquina local para o container (exemplo: broken_crystals.yaml)
 COPY ./broken_crystals.yaml /zap/wrk/broken_crystals.yaml

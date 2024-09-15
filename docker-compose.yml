@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  zap:
+    image: minha_imagem_zap
+    container_name: my_zap_container
+    ports:
+      - "8080:8080"  # Mapeia a porta 8080 do contêiner para a porta 8080 do host
+    volumes:
+      - ./zap_data:/zap/wrk  # Mapeia o diretório local para o diretório /zap/wrk dentro do contêiner
+    entrypoint: ["/zap/zap.sh", "-daemon", "-host", "0.0.0.0"]
+
