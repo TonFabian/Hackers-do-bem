@@ -52,7 +52,7 @@ zap-full-scan:
     ZAP_REPORT: quick_scan_report
   script:
     - echo "Running OWASP ZAP scan..."
-    - chmod 777 /zap/zap_full_scan.sh  # Garante que o script tenha permissões adequadas
+    - chmod +x ./zap/zap_full_scan.sh  # Garante que o script tenha permissões adequadas
     - bash /zap/zap_full_scan.sh  # Executa o script de scan
     - echo "Listing files in /zap/wrk/..."
     - ls -l /zap/wrk/
