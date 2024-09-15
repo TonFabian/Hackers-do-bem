@@ -48,13 +48,10 @@ zap-full-scan:
     name: zaproxy/zap-stable:2.15.0
     entrypoint: [""]
   variables:
-    CI_PROJECT_DIR: /zap/wrk
     ZAP_ALERT_REPORT: quick_scan_alert_report
     ZAP_REPORT: quick_scan_report
   script:
     - echo "Running OWASP ZAP scan..."
-    - mkdir -p /zap/wrk  # Garante que o diretório /zap/wrk exista
-    - cp -r /zap/* /zap/wrk/  # Copia todos os arquivos de /zap para /zap/wrk/
     - chmod 777 /zap/zap_full_scan.sh  # Garante que o script tenha permissões adequadas
     - bash /zap/zap_full_scan.sh  # Executa o script de scan
     - echo "Listing files in /zap/wrk/..."
