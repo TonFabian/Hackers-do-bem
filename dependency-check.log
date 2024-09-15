@@ -1,0 +1,597 @@
+2024-09-12 00:18:52,001 org.owasp.dependencycheck.utils.Settings:973
+DEBUG - Setting: data.directory='/home/werton/Downloads/dependency-check/data'
+2024-09-12 00:18:52,004 org.owasp.dependencycheck.utils.Settings:973
+DEBUG - Setting: analyzer.jar.enabled='true'
+2024-09-12 00:18:52,004 org.owasp.dependencycheck.utils.Settings:973
+DEBUG - Setting: analyzer.msbuildproject.enabled='true'
+2024-09-12 00:18:52,005 org.owasp.dependencycheck.utils.Settings:973
+DEBUG - Setting: analyzer.archive.enabled='true'
+2024-09-12 00:18:52,005 org.owasp.dependencycheck.utils.Settings:973
+DEBUG - Setting: analyzer.knownexploited.enabled='true'
+2024-09-12 00:18:52,005 org.owasp.dependencycheck.utils.Settings:973
+DEBUG - Setting: analyzer.python.distribution.enabled='true'
+2024-09-12 00:18:52,005 org.owasp.dependencycheck.utils.Settings:973
+DEBUG - Setting: analyzer.python.package.enabled='true'
+2024-09-12 00:18:52,005 org.owasp.dependencycheck.utils.Settings:973
+DEBUG - Setting: analyzer.autoconf.enabled='true'
+2024-09-12 00:18:52,006 org.owasp.dependencycheck.utils.Settings:973
+DEBUG - Setting: analyzer.maveninstall.enabled='true'
+2024-09-12 00:18:52,006 org.owasp.dependencycheck.utils.Settings:973
+DEBUG - Setting: analyzer.pip.enabled='true'
+2024-09-12 00:18:52,006 org.owasp.dependencycheck.utils.Settings:973
+DEBUG - Setting: analyzer.pipfile.enabled='true'
+2024-09-12 00:18:52,006 org.owasp.dependencycheck.utils.Settings:973
+DEBUG - Setting: analyzer.poetry.enabled='true'
+2024-09-12 00:18:52,006 org.owasp.dependencycheck.utils.Settings:973
+DEBUG - Setting: analyzer.cmake.enabled='true'
+2024-09-12 00:18:52,006 org.owasp.dependencycheck.utils.Settings:973
+DEBUG - Setting: analyzer.nuspec.enabled='true'
+2024-09-12 00:18:52,006 org.owasp.dependencycheck.utils.Settings:973
+DEBUG - Setting: analyzer.nugetconf.enabled='true'
+2024-09-12 00:18:52,007 org.owasp.dependencycheck.utils.Settings:973
+DEBUG - Setting: analyzer.assembly.enabled='true'
+2024-09-12 00:18:52,007 org.owasp.dependencycheck.utils.Settings:973
+DEBUG - Setting: analyzer.bundle.audit.enabled='true'
+2024-09-12 00:18:52,007 org.owasp.dependencycheck.utils.Settings:973
+DEBUG - Setting: analyzer.filename.enabled='true'
+2024-09-12 00:18:52,007 org.owasp.dependencycheck.utils.Settings:973
+DEBUG - Setting: analyzer.mix.audit.enabled='true'
+2024-09-12 00:18:52,007 org.owasp.dependencycheck.utils.Settings:973
+DEBUG - Setting: analyzer.openssl.enabled='true'
+2024-09-12 00:18:52,007 org.owasp.dependencycheck.utils.Settings:973
+DEBUG - Setting: analyzer.composer.lock.enabled='true'
+2024-09-12 00:18:52,008 org.owasp.dependencycheck.utils.Settings:973
+DEBUG - Setting: analyzer.cpanfile.enabled='true'
+2024-09-12 00:18:52,008 org.owasp.dependencycheck.utils.Settings:973
+DEBUG - Setting: analyzer.golang.dep.enabled='true'
+2024-09-12 00:18:52,008 org.owasp.dependencycheck.utils.Settings:973
+DEBUG - Setting: analyzer.golang.mod.enabled='true'
+2024-09-12 00:18:52,008 org.owasp.dependencycheck.utils.Settings:973
+DEBUG - Setting: analyzer.dart.enabled='true'
+2024-09-12 00:18:52,008 org.owasp.dependencycheck.utils.Settings:973
+DEBUG - Setting: analyzer.node.package.enabled='true'
+2024-09-12 00:18:52,008 org.owasp.dependencycheck.utils.Settings:973
+DEBUG - Setting: analyzer.node.audit.enabled='true'
+2024-09-12 00:18:52,008 org.owasp.dependencycheck.utils.Settings:973
+DEBUG - Setting: analyzer.yarn.audit.enabled='true'
+2024-09-12 00:18:52,009 org.owasp.dependencycheck.utils.Settings:973
+DEBUG - Setting: analyzer.pnpm.audit.enabled='true'
+2024-09-12 00:18:52,009 org.owasp.dependencycheck.utils.Settings:973
+DEBUG - Setting: analyzer.node.audit.use.cache='true'
+2024-09-12 00:18:52,009 org.owasp.dependencycheck.utils.Settings:973
+DEBUG - Setting: analyzer.retirejs.enabled='true'
+2024-09-12 00:18:52,009 org.owasp.dependencycheck.utils.Settings:973
+DEBUG - Setting: analyzer.swift.package.manager.enabled='true'
+2024-09-12 00:18:52,009 org.owasp.dependencycheck.utils.Settings:973
+DEBUG - Setting: analyzer.swift.package.resolved.enabled='true'
+2024-09-12 00:18:52,010 org.owasp.dependencycheck.utils.Settings:973
+DEBUG - Setting: analyzer.cocoapods.enabled='true'
+2024-09-12 00:18:52,010 org.owasp.dependencycheck.utils.Settings:973
+DEBUG - Setting: analyzer.carthage.enabled='true'
+2024-09-12 00:18:52,010 org.owasp.dependencycheck.utils.Settings:973
+DEBUG - Setting: analyzer.ruby.gemspec.enabled='true'
+2024-09-12 00:18:52,010 org.owasp.dependencycheck.utils.Settings:973
+DEBUG - Setting: analyzer.central.enabled='true'
+2024-09-12 00:18:52,010 org.owasp.dependencycheck.utils.Settings:973
+DEBUG - Setting: analyzer.central.use.cache='true'
+2024-09-12 00:18:52,010 org.owasp.dependencycheck.utils.Settings:973
+DEBUG - Setting: analyzer.ossindex.enabled='true'
+2024-09-12 00:18:52,010 org.owasp.dependencycheck.utils.Settings:973
+DEBUG - Setting: analyzer.ossindex.use.cache='true'
+2024-09-12 00:18:52,011 org.owasp.dependencycheck.utils.Settings:973
+DEBUG - Setting: junit.fail.on.cvss='0.0'
+2024-09-12 00:18:52,011 org.owasp.dependencycheck.utils.Settings:973
+DEBUG - Setting: analyzer.nexus.proxy='true'
+2024-09-12 00:18:52,011 org.owasp.dependencycheck.utils.Settings:973
+DEBUG - Setting: hosted.suppressions.enabled='true'
+2024-09-12 00:18:52,012 org.owasp.dependencycheck.App:361
+DEBUG - Scanning /home/werton/Task-Manager-using-Flask/todo_project
+2024-09-12 00:18:52,016 org.owasp.dependencycheck.App:376
+DEBUG - BaseDir: /home/werton/Task-Manager-using-Flask/todo_project
+2024-09-12 00:18:52,016 org.owasp.dependencycheck.App:377
+DEBUG - Include: **/*
+2024-09-12 00:18:52,027 org.owasp.dependencycheck.App:395
+DEBUG - Found file /home/werton/Task-Manager-using-Flask/todo_project/bandit-report.html
+2024-09-12 00:18:52,027 org.owasp.dependencycheck.App:395
+DEBUG - Found file /home/werton/Task-Manager-using-Flask/todo_project/requirements.txt
+2024-09-12 00:18:52,027 org.owasp.dependencycheck.App:395
+DEBUG - Found file /home/werton/Task-Manager-using-Flask/todo_project/run.py
+2024-09-12 00:18:52,027 org.owasp.dependencycheck.App:395
+DEBUG - Found file /home/werton/Task-Manager-using-Flask/todo_project/todo_project/__init__.py
+2024-09-12 00:18:52,027 org.owasp.dependencycheck.App:395
+DEBUG - Found file /home/werton/Task-Manager-using-Flask/todo_project/todo_project/__pycache__/__init__.cpython-310.pyc
+2024-09-12 00:18:52,027 org.owasp.dependencycheck.App:395
+DEBUG - Found file /home/werton/Task-Manager-using-Flask/todo_project/todo_project/__pycache__/forms.cpython-310.pyc
+2024-09-12 00:18:52,028 org.owasp.dependencycheck.App:395
+DEBUG - Found file /home/werton/Task-Manager-using-Flask/todo_project/todo_project/__pycache__/models.cpython-310.pyc
+2024-09-12 00:18:52,028 org.owasp.dependencycheck.App:395
+DEBUG - Found file /home/werton/Task-Manager-using-Flask/todo_project/todo_project/__pycache__/py_test.cpython-310-pytest-8.3.3.pyc
+2024-09-12 00:18:52,028 org.owasp.dependencycheck.App:395
+DEBUG - Found file /home/werton/Task-Manager-using-Flask/todo_project/todo_project/__pycache__/routes.cpython-310.pyc
+2024-09-12 00:18:52,028 org.owasp.dependencycheck.App:395
+DEBUG - Found file /home/werton/Task-Manager-using-Flask/todo_project/todo_project/forms.py
+2024-09-12 00:18:52,028 org.owasp.dependencycheck.App:395
+DEBUG - Found file /home/werton/Task-Manager-using-Flask/todo_project/todo_project/models.py
+2024-09-12 00:18:52,028 org.owasp.dependencycheck.App:395
+DEBUG - Found file /home/werton/Task-Manager-using-Flask/todo_project/todo_project/py_test.py
+2024-09-12 00:18:52,028 org.owasp.dependencycheck.App:395
+DEBUG - Found file /home/werton/Task-Manager-using-Flask/todo_project/todo_project/routes.py
+2024-09-12 00:18:52,028 org.owasp.dependencycheck.App:395
+DEBUG - Found file /home/werton/Task-Manager-using-Flask/todo_project/todo_project/site.db
+2024-09-12 00:18:52,028 org.owasp.dependencycheck.App:395
+DEBUG - Found file /home/werton/Task-Manager-using-Flask/todo_project/todo_project/static/bootstrap/css/bootstrap-grid.css
+2024-09-12 00:18:52,028 org.owasp.dependencycheck.App:395
+DEBUG - Found file /home/werton/Task-Manager-using-Flask/todo_project/todo_project/static/bootstrap/css/bootstrap-grid.min.css
+2024-09-12 00:18:52,028 org.owasp.dependencycheck.App:395
+DEBUG - Found file /home/werton/Task-Manager-using-Flask/todo_project/todo_project/static/bootstrap/css/bootstrap-reboot.css
+2024-09-12 00:18:52,028 org.owasp.dependencycheck.App:395
+DEBUG - Found file /home/werton/Task-Manager-using-Flask/todo_project/todo_project/static/bootstrap/css/bootstrap-reboot.min.css
+2024-09-12 00:18:52,028 org.owasp.dependencycheck.App:395
+DEBUG - Found file /home/werton/Task-Manager-using-Flask/todo_project/todo_project/static/bootstrap/css/bootstrap.css
+2024-09-12 00:18:52,029 org.owasp.dependencycheck.App:395
+DEBUG - Found file /home/werton/Task-Manager-using-Flask/todo_project/todo_project/static/bootstrap/css/bootstrap.min.css
+2024-09-12 00:18:52,029 org.owasp.dependencycheck.App:395
+DEBUG - Found file /home/werton/Task-Manager-using-Flask/todo_project/todo_project/static/bootstrap/js/bootstrap.bundle.js
+2024-09-12 00:18:52,029 org.owasp.dependencycheck.App:395
+DEBUG - Found file /home/werton/Task-Manager-using-Flask/todo_project/todo_project/static/bootstrap/js/bootstrap.bundle.min.js
+2024-09-12 00:18:52,029 org.owasp.dependencycheck.App:395
+DEBUG - Found file /home/werton/Task-Manager-using-Flask/todo_project/todo_project/static/bootstrap/js/bootstrap.js
+2024-09-12 00:18:52,029 org.owasp.dependencycheck.App:395
+DEBUG - Found file /home/werton/Task-Manager-using-Flask/todo_project/todo_project/static/bootstrap/js/bootstrap.min.js
+2024-09-12 00:18:52,029 org.owasp.dependencycheck.App:395
+DEBUG - Found file /home/werton/Task-Manager-using-Flask/todo_project/todo_project/static/bootstrap/js/slim.js
+2024-09-12 00:18:52,029 org.owasp.dependencycheck.App:395
+DEBUG - Found file /home/werton/Task-Manager-using-Flask/todo_project/todo_project/static/bootstrap/js/slim.min.js
+2024-09-12 00:18:52,029 org.owasp.dependencycheck.App:395
+DEBUG - Found file /home/werton/Task-Manager-using-Flask/todo_project/todo_project/static/main.css
+2024-09-12 00:18:52,029 org.owasp.dependencycheck.App:395
+DEBUG - Found file /home/werton/Task-Manager-using-Flask/todo_project/todo_project/templates/about.html
+2024-09-12 00:18:52,029 org.owasp.dependencycheck.App:395
+DEBUG - Found file /home/werton/Task-Manager-using-Flask/todo_project/todo_project/templates/account.html
+2024-09-12 00:18:52,029 org.owasp.dependencycheck.App:395
+DEBUG - Found file /home/werton/Task-Manager-using-Flask/todo_project/todo_project/templates/add_task.html
+2024-09-12 00:18:52,029 org.owasp.dependencycheck.App:395
+DEBUG - Found file /home/werton/Task-Manager-using-Flask/todo_project/todo_project/templates/all_tasks.html
+2024-09-12 00:18:52,029 org.owasp.dependencycheck.App:395
+DEBUG - Found file /home/werton/Task-Manager-using-Flask/todo_project/todo_project/templates/change_password.html
+2024-09-12 00:18:52,029 org.owasp.dependencycheck.App:395
+DEBUG - Found file /home/werton/Task-Manager-using-Flask/todo_project/todo_project/templates/errors/403.html
+2024-09-12 00:18:52,029 org.owasp.dependencycheck.App:395
+DEBUG - Found file /home/werton/Task-Manager-using-Flask/todo_project/todo_project/templates/errors/404.html
+2024-09-12 00:18:52,030 org.owasp.dependencycheck.App:395
+DEBUG - Found file /home/werton/Task-Manager-using-Flask/todo_project/todo_project/templates/errors/500.html
+2024-09-12 00:18:52,030 org.owasp.dependencycheck.App:395
+DEBUG - Found file /home/werton/Task-Manager-using-Flask/todo_project/todo_project/templates/layout.html
+2024-09-12 00:18:52,030 org.owasp.dependencycheck.App:395
+DEBUG - Found file /home/werton/Task-Manager-using-Flask/todo_project/todo_project/templates/login.html
+2024-09-12 00:18:52,030 org.owasp.dependencycheck.App:395
+DEBUG - Found file /home/werton/Task-Manager-using-Flask/todo_project/todo_project/templates/register.html
+2024-09-12 00:18:52,042 org.owasp.dependencycheck.analyzer.AnalyzerService:113
+DEBUG - Loaded Analyzer Archive Analyzer
+2024-09-12 00:18:52,043 org.owasp.dependencycheck.analyzer.AnalyzerService:113
+DEBUG - Loaded Analyzer File Name Analyzer
+2024-09-12 00:18:52,050 org.owasp.dependencycheck.analyzer.AnalyzerService:113
+DEBUG - Loaded Analyzer Jar Analyzer
+2024-09-12 00:18:52,051 org.owasp.dependencycheck.analyzer.AnalyzerService:113
+DEBUG - Loaded Analyzer Hint Analyzer
+2024-09-12 00:18:52,053 org.owasp.dependencycheck.analyzer.AnalyzerService:113
+DEBUG - Loaded Analyzer CPE Analyzer
+2024-09-12 00:18:52,054 org.owasp.dependencycheck.analyzer.AnalyzerService:113
+DEBUG - Loaded Analyzer False Positive Analyzer
+2024-09-12 00:18:52,056 org.owasp.dependencycheck.analyzer.AnalyzerService:113
+DEBUG - Loaded Analyzer Dependency Bundling Analyzer
+2024-09-12 00:18:52,056 org.owasp.dependencycheck.analyzer.AnalyzerService:113
+DEBUG - Loaded Analyzer Dependency Merging Analyzer
+2024-09-12 00:18:52,056 org.owasp.dependencycheck.analyzer.AnalyzerService:113
+DEBUG - Loaded Analyzer NVD CVE Analyzer
+2024-09-12 00:18:52,057 org.owasp.dependencycheck.analyzer.AnalyzerService:113
+DEBUG - Loaded Analyzer Vulnerability Suppression Analyzer
+2024-09-12 00:18:52,058 org.owasp.dependencycheck.analyzer.AnalyzerService:113
+DEBUG - Loaded Analyzer Central Analyzer
+2024-09-12 00:18:52,059 org.owasp.dependencycheck.analyzer.AnalyzerService:113
+DEBUG - Loaded Analyzer Nexus Analyzer
+2024-09-12 00:18:52,059 org.owasp.dependencycheck.analyzer.AnalyzerService:113
+DEBUG - Loaded Analyzer Artifactory Analyzer
+2024-09-12 00:18:52,060 org.owasp.dependencycheck.analyzer.AnalyzerService:113
+DEBUG - Loaded Analyzer Nuspec Analyzer
+2024-09-12 00:18:52,060 org.owasp.dependencycheck.analyzer.AnalyzerService:113
+DEBUG - Loaded Analyzer Nugetconf Analyzer
+2024-09-12 00:18:52,061 org.owasp.dependencycheck.analyzer.AnalyzerService:113
+DEBUG - Loaded Analyzer MSBuild Project Analyzer
+2024-09-12 00:18:52,062 org.owasp.dependencycheck.analyzer.AnalyzerService:113
+DEBUG - Loaded Analyzer Assembly Analyzer
+2024-09-12 00:18:52,067 org.owasp.dependencycheck.analyzer.AnalyzerService:113
+DEBUG - Loaded Analyzer OpenSSL Source Analyzer
+2024-09-12 00:18:52,069 org.owasp.dependencycheck.analyzer.AnalyzerService:113
+DEBUG - Loaded Analyzer Node.js Package Analyzer
+2024-09-12 00:18:52,070 org.owasp.dependencycheck.analyzer.AnalyzerService:113
+DEBUG - Loaded Analyzer Node Audit Analyzer
+2024-09-12 00:18:52,070 org.owasp.dependencycheck.analyzer.AnalyzerService:113
+DEBUG - Loaded Analyzer Yarn Audit Analyzer
+2024-09-12 00:18:52,071 org.owasp.dependencycheck.analyzer.AnalyzerService:113
+DEBUG - Loaded Analyzer Pnpm Audit Analyzer
+2024-09-12 00:18:52,073 org.owasp.dependencycheck.analyzer.AnalyzerService:113
+DEBUG - Loaded Analyzer RetireJS Analyzer
+2024-09-12 00:18:52,074 org.owasp.dependencycheck.analyzer.AnalyzerService:113
+DEBUG - Loaded Analyzer Ruby Bundle Audit Analyzer
+2024-09-12 00:18:52,079 org.owasp.dependencycheck.analyzer.AnalyzerService:113
+DEBUG - Loaded Analyzer Version Filter Analyzer
+2024-09-12 00:18:52,080 org.owasp.dependencycheck.analyzer.AnalyzerService:113
+DEBUG - Loaded Analyzer Sonatype OSS Index Analyzer
+2024-09-12 00:18:52,118 org.owasp.dependencycheck.analyzer.AnalyzerService:113
+DEBUG - Loaded Analyzer Known Exploited Vulnerability Analyzer
+2024-09-12 00:18:52,120 org.owasp.dependencycheck.analyzer.AnalyzerService:113
+DEBUG - Loaded Analyzer Unused Suppression Rule Analyzer
+2024-09-12 00:18:52,120 org.owasp.dependencycheck.analyzer.AnalyzerService:113
+DEBUG - Loaded Analyzer Libman Analyzer
+2024-09-12 00:18:52,121 org.owasp.dependencycheck.utils.Settings:1174
+DEBUG - Settings.getDataFile() - file: '/home/werton/Downloads/dependency-check/data'
+2024-09-12 00:18:52,271 org.owasp.dependencycheck.utils.Settings:1174
+DEBUG - Settings.getDataFile() - file: '/home/werton/Downloads/dependency-check/data'
+2024-09-12 00:18:52,271 org.owasp.dependencycheck.utils.Settings:1431
+DEBUG - Data directory: /home/werton/Downloads/dependency-check/data
+2024-09-12 00:18:52,272 org.owasp.dependencycheck.utils.Settings:1447
+DEBUG - Connection String: 'jdbc:h2:file:/home/werton/Downloads/dependency-check/data/odc;AUTOCOMMIT=ON;CACHE_SIZE=65536;RETENTION_TIME=1000;MAX_COMPACT_TIME=10000;'
+2024-09-12 00:18:52,272 org.owasp.dependencycheck.utils.Settings:1174
+DEBUG - Settings.getDataFile() - file: '/home/werton/Downloads/dependency-check/data'
+2024-09-12 00:18:52,295 org.owasp.dependencycheck.utils.WriteLock:168
+DEBUG - Lock file created (main) 015a130f1d679fcc4cbcd78085a719f0 @ 2024-09-12 00:18:52.295
+2024-09-12 00:18:52,304 org.owasp.dependencycheck.data.nvdcve.DatabaseManager:143
+DEBUG - Loading driver 'org.h2.Driver'
+2024-09-12 00:18:52,306 org.owasp.dependencycheck.utils.Settings:1174
+DEBUG - Settings.getDataFile() - file: '/home/werton/Downloads/dependency-check/data'
+2024-09-12 00:18:52,306 org.owasp.dependencycheck.utils.Settings:1431
+DEBUG - Data directory: /home/werton/Downloads/dependency-check/data
+2024-09-12 00:18:52,306 org.owasp.dependencycheck.utils.Settings:1447
+DEBUG - Connection String: 'jdbc:h2:file:/home/werton/Downloads/dependency-check/data/odc;AUTOCOMMIT=ON;CACHE_SIZE=65536;RETENTION_TIME=1000;MAX_COMPACT_TIME=10000;'
+2024-09-12 00:18:52,306 org.owasp.dependencycheck.utils.Settings:1174
+DEBUG - Settings.getDataFile() - file: '/home/werton/Downloads/dependency-check/data'
+2024-09-12 00:18:52,307 org.owasp.dependencycheck.data.nvdcve.DatabaseManager:172
+DEBUG - Need to create DB Structure: false
+2024-09-12 00:18:52,307 org.owasp.dependencycheck.data.nvdcve.DatabaseManager:178
+DEBUG - Loading database connection
+2024-09-12 00:18:52,307 org.owasp.dependencycheck.data.nvdcve.DatabaseManager:179
+DEBUG - Connection String: jdbc:h2:file:/home/werton/Downloads/dependency-check/data/odc;AUTOCOMMIT=ON;CACHE_SIZE=65536;RETENTION_TIME=1000;MAX_COMPACT_TIME=10000;
+2024-09-12 00:18:52,307 org.owasp.dependencycheck.data.nvdcve.DatabaseManager:180
+DEBUG - Database User: dcuser
+2024-09-12 00:18:52,476 org.owasp.dependencycheck.data.nvdcve.DatabaseManager:244
+DEBUG - Database product: h2
+2024-09-12 00:18:52,490 org.owasp.dependencycheck.data.nvdcve.DatabaseManager:505
+DEBUG - DC Schema: 5.5
+2024-09-12 00:18:52,496 org.owasp.dependencycheck.data.nvdcve.DatabaseManager:506
+DEBUG - DB Schema: 5.5
+2024-09-12 00:18:52,675 org.owasp.dependencycheck.Engine:897
+INFO  - Checking for updates
+2024-09-12 00:18:52,680 org.owasp.dependencycheck.data.update.NvdApiDataSource:318
+WARN  - An NVD API Key was not provided - it is highly recommended to use an NVD API key as the update can take a VERY long time without an API Key
+2024-09-12 00:18:52,682 io.github.jeremylong.openvulnerability.client.nvd.RateLimitedClient:127
+DEBUG - rate limited call delay: 10000
+2024-09-12 00:18:52,877 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=0
+2024-09-12 00:18:52,880 io.github.jeremylong.openvulnerability.client.nvd.RateMeter:83
+DEBUG - Ticket taken At: 00:18:52; count: 1; by 49
+2024-09-12 00:18:52,881 io.github.jeremylong.openvulnerability.client.nvd.RateLimitedClient:198
+DEBUG - Requested At: 00:18:52; URI: /rest/json/cves/2.0?resultsPerPage=2000&startIndex=0
+2024-09-12 00:18:59,167 io.github.jeremylong.openvulnerability.client.nvd.RateMeter:95
+DEBUG - Ticket returned At: 00:18:59; count: 2; by 49
+2024-09-12 00:18:59,381 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:343
+DEBUG - Content-Type Received: application/json
+2024-09-12 00:18:59,673 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=2000
+2024-09-12 00:18:59,674 io.github.jeremylong.openvulnerability.client.nvd.RateLimitedClient:190
+DEBUG - Rate Limited API call - waiting for 3398ms
+2024-09-12 00:18:59,674 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=4000
+2024-09-12 00:18:59,674 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=6000
+2024-09-12 00:18:59,674 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=8000
+2024-09-12 00:18:59,674 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=10000
+2024-09-12 00:18:59,675 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=12000
+2024-09-12 00:18:59,675 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=14000
+2024-09-12 00:18:59,675 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=16000
+2024-09-12 00:18:59,675 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=18000
+2024-09-12 00:18:59,675 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=20000
+2024-09-12 00:18:59,675 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=22000
+2024-09-12 00:18:59,675 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=24000
+2024-09-12 00:18:59,676 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=26000
+2024-09-12 00:18:59,676 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=28000
+2024-09-12 00:18:59,676 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=30000
+2024-09-12 00:18:59,676 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=32000
+2024-09-12 00:18:59,676 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=34000
+2024-09-12 00:18:59,676 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=36000
+2024-09-12 00:18:59,676 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=38000
+2024-09-12 00:18:59,677 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=40000
+2024-09-12 00:18:59,677 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=42000
+2024-09-12 00:18:59,677 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=44000
+2024-09-12 00:18:59,677 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=46000
+2024-09-12 00:18:59,677 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=48000
+2024-09-12 00:18:59,677 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=50000
+2024-09-12 00:18:59,677 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=52000
+2024-09-12 00:18:59,678 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=54000
+2024-09-12 00:18:59,678 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=56000
+2024-09-12 00:18:59,678 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=58000
+2024-09-12 00:18:59,678 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=60000
+2024-09-12 00:18:59,678 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=62000
+2024-09-12 00:18:59,678 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=64000
+2024-09-12 00:18:59,678 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=66000
+2024-09-12 00:18:59,678 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=68000
+2024-09-12 00:18:59,679 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=70000
+2024-09-12 00:18:59,679 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=72000
+2024-09-12 00:18:59,679 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=74000
+2024-09-12 00:18:59,679 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=76000
+2024-09-12 00:18:59,679 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=78000
+2024-09-12 00:18:59,679 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=80000
+2024-09-12 00:18:59,679 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=82000
+2024-09-12 00:18:59,680 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=84000
+2024-09-12 00:18:59,680 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=86000
+2024-09-12 00:18:59,680 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=88000
+2024-09-12 00:18:59,680 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=90000
+2024-09-12 00:18:59,680 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=92000
+2024-09-12 00:18:59,680 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=94000
+2024-09-12 00:18:59,680 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=96000
+2024-09-12 00:18:59,680 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=98000
+2024-09-12 00:18:59,681 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=100000
+2024-09-12 00:18:59,681 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=102000
+2024-09-12 00:18:59,681 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=104000
+2024-09-12 00:18:59,681 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=106000
+2024-09-12 00:18:59,681 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=108000
+2024-09-12 00:18:59,681 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=110000
+2024-09-12 00:18:59,681 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=112000
+2024-09-12 00:18:59,681 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=114000
+2024-09-12 00:18:59,682 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=116000
+2024-09-12 00:18:59,682 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=118000
+2024-09-12 00:18:59,682 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=120000
+2024-09-12 00:18:59,682 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=122000
+2024-09-12 00:18:59,682 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=124000
+2024-09-12 00:18:59,682 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=126000
+2024-09-12 00:18:59,682 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=128000
+2024-09-12 00:18:59,683 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=130000
+2024-09-12 00:18:59,683 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=132000
+2024-09-12 00:18:59,683 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=134000
+2024-09-12 00:18:59,683 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=136000
+2024-09-12 00:18:59,683 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=138000
+2024-09-12 00:18:59,683 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=140000
+2024-09-12 00:18:59,683 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=142000
+2024-09-12 00:18:59,683 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=144000
+2024-09-12 00:18:59,684 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=146000
+2024-09-12 00:18:59,684 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=148000
+2024-09-12 00:18:59,684 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=150000
+2024-09-12 00:18:59,684 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=152000
+2024-09-12 00:18:59,684 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=154000
+2024-09-12 00:18:59,684 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=156000
+2024-09-12 00:18:59,684 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=158000
+2024-09-12 00:18:59,684 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=160000
+2024-09-12 00:18:59,684 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=162000
+2024-09-12 00:18:59,685 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=164000
+2024-09-12 00:18:59,685 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=166000
+2024-09-12 00:18:59,685 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=168000
+2024-09-12 00:18:59,685 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=170000
+2024-09-12 00:18:59,685 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=172000
+2024-09-12 00:18:59,685 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=174000
+2024-09-12 00:18:59,685 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=176000
+2024-09-12 00:18:59,685 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=178000
+2024-09-12 00:18:59,686 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=180000
+2024-09-12 00:18:59,686 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=182000
+2024-09-12 00:18:59,686 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=184000
+2024-09-12 00:18:59,686 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=186000
+2024-09-12 00:18:59,686 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=188000
+2024-09-12 00:18:59,686 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=190000
+2024-09-12 00:18:59,686 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=192000
+2024-09-12 00:18:59,686 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=194000
+2024-09-12 00:18:59,687 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=196000
+2024-09-12 00:18:59,687 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=198000
+2024-09-12 00:18:59,687 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=200000
+2024-09-12 00:18:59,687 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=202000
+2024-09-12 00:18:59,687 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=204000
+2024-09-12 00:18:59,687 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=206000
+2024-09-12 00:18:59,687 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=208000
+2024-09-12 00:18:59,687 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=210000
+2024-09-12 00:18:59,687 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=212000
+2024-09-12 00:18:59,688 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=214000
+2024-09-12 00:18:59,688 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=216000
+2024-09-12 00:18:59,688 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=218000
+2024-09-12 00:18:59,688 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=220000
+2024-09-12 00:18:59,688 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=222000
+2024-09-12 00:18:59,688 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=224000
+2024-09-12 00:18:59,688 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=226000
+2024-09-12 00:18:59,688 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=228000
+2024-09-12 00:18:59,688 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=230000
+2024-09-12 00:18:59,689 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=232000
+2024-09-12 00:18:59,689 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=234000
+2024-09-12 00:18:59,689 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=236000
+2024-09-12 00:18:59,689 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=238000
+2024-09-12 00:18:59,689 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=240000
+2024-09-12 00:18:59,689 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=242000
+2024-09-12 00:18:59,689 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=244000
+2024-09-12 00:18:59,689 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=246000
+2024-09-12 00:18:59,690 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=248000
+2024-09-12 00:18:59,690 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=250000
+2024-09-12 00:18:59,690 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=252000
+2024-09-12 00:18:59,690 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=254000
+2024-09-12 00:18:59,690 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=256000
+2024-09-12 00:18:59,690 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=258000
+2024-09-12 00:18:59,690 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=260000
+2024-09-12 00:18:59,690 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:274
+DEBUG - requesting URI: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex=262000
+2024-09-12 00:18:59,691 org.owasp.dependencycheck.data.update.NvdApiDataSource:352
+INFO  - NVD API has 262.613 records in this update
+2024-09-12 00:18:59,691 org.owasp.dependencycheck.utils.FileUtils:125
+DEBUG - Temporary directory is `/tmp/dctemp48a4116b-2803-4204-8330-8df6c719a4af`
+2024-09-12 00:19:03,072 io.github.jeremylong.openvulnerability.client.nvd.RateMeter:83
+DEBUG - Ticket taken At: 00:19:03; count: 2; by 49
+2024-09-12 00:19:03,073 io.github.jeremylong.openvulnerability.client.nvd.RateLimitedClient:198
+DEBUG - Requested At: 00:19:03; URI: /rest/json/cves/2.0?resultsPerPage=2000&startIndex=2000
+2024-09-12 00:19:04,725 io.github.jeremylong.openvulnerability.client.nvd.RateMeter:95
+DEBUG - Ticket returned At: 00:19:04; count: 3; by 49
+2024-09-12 00:19:04,725 io.github.jeremylong.openvulnerability.client.nvd.RateLimitedClient:190
+DEBUG - Rate Limited API call - waiting for 8349ms
+2024-09-12 00:19:04,856 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:343
+DEBUG - Content-Type Received: application/json
+2024-09-12 00:19:13,074 io.github.jeremylong.openvulnerability.client.nvd.RateMeter:83
+DEBUG - Ticket taken At: 00:19:13; count: 3; by 49
+2024-09-12 00:19:13,075 io.github.jeremylong.openvulnerability.client.nvd.RateLimitedClient:198
+DEBUG - Requested At: 00:19:13; URI: /rest/json/cves/2.0?resultsPerPage=2000&startIndex=4000
+2024-09-12 00:19:14,456 io.github.jeremylong.openvulnerability.client.nvd.RateMeter:95
+DEBUG - Ticket returned At: 00:19:14; count: 4; by 49
+2024-09-12 00:19:14,457 io.github.jeremylong.openvulnerability.client.nvd.RateLimitedClient:190
+DEBUG - Rate Limited API call - waiting for 8619ms
+2024-09-12 00:19:14,577 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:343
+DEBUG - Content-Type Received: application/json
+2024-09-12 00:19:20,245 org.owasp.dependencycheck.utils.WriteLock:240
+DEBUG - Lock released (Thread-14) 015a130f1d679fcc4cbcd78085a719f0 @ 2024-09-12 00:19:20.245
+2024-09-12 00:19:23,076 io.github.jeremylong.openvulnerability.client.nvd.RateMeter:83
+DEBUG - Ticket taken At: 00:19:23; count: 4; by 49
+2024-09-12 00:19:23,076 io.github.jeremylong.openvulnerability.client.nvd.RateLimitedClient:198
+DEBUG - Requested At: 00:19:23; URI: /rest/json/cves/2.0?resultsPerPage=2000&startIndex=6000
+2024-09-12 00:19:24,959 io.github.jeremylong.openvulnerability.client.nvd.RateMeter:95
+DEBUG - Ticket returned At: 00:19:24; count: 5; by 49
+2024-09-12 00:19:24,959 io.github.jeremylong.openvulnerability.client.nvd.RateLimitedClient:190
+DEBUG - Rate Limited API call - waiting for 8118ms
+2024-09-12 00:19:25,245 io.github.jeremylong.openvulnerability.client.nvd.NvdCveClient:343
+DEBUG - Content-Type Received: application/json
+2024-09-12 00:19:25,453 org.apache.commons.dbcp2.PoolableConnectionFactory:761
+DEBUG - Failed to validate a poolable connection.
+java.sql.SQLException: validateConnection: connection closed
+	at org.apache.commons.dbcp2.PoolableConnectionFactory.validateConnection(PoolableConnectionFactory.java:744)
+	at org.apache.commons.dbcp2.PoolableConnectionFactory.validateObject(PoolableConnectionFactory.java:757)
+	at org.apache.commons.pool2.impl.GenericObjectPool.borrowObject(GenericObjectPool.java:347)
+	at org.apache.commons.pool2.impl.GenericObjectPool.borrowObject(GenericObjectPool.java:233)
+	at org.apache.commons.dbcp2.PoolingDataSource.getConnection(PoolingDataSource.java:139)
+	at org.apache.commons.dbcp2.BasicDataSource.getConnection(BasicDataSource.java:714)
+	at org.owasp.dependencycheck.data.nvdcve.DatabaseManager.getConnection(DatabaseManager.java:575)
+	at org.owasp.dependencycheck.data.nvdcve.CveDB.updateOrInsertVulnerability(CveDB.java:1175)
+	at org.owasp.dependencycheck.data.nvdcve.CveDB.updateVulnerability(CveDB.java:1100)
+	at org.owasp.dependencycheck.data.update.nvd.api.NvdApiProcessor.updateCveDb(NvdApiProcessor.java:119)
+	at org.owasp.dependencycheck.data.update.nvd.api.NvdApiProcessor.call(NvdApiProcessor.java:96)
+	at org.owasp.dependencycheck.data.update.nvd.api.NvdApiProcessor.call(NvdApiProcessor.java:40)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
