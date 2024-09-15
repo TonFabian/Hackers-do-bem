@@ -5,6 +5,6 @@ services:
     ports:
       - "8080:8080"
     volumes:
-      - ./:/zap/wrk
+      - ./zap_data::/zap/wrk
     command: zap-baseline.py -t https://a2ff-24-152-27-101.ngrok-free.app/ -r /zap/wrk/scan-report.html
 

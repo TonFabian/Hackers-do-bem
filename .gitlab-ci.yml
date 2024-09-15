@@ -50,14 +50,18 @@ scan:
   script:
     - echo "Running OWASP ZAP scan..."
     - docker-compose -f docker-compose.yml up --abort-on-container-exit || true
-    - echo "Listing files in the scan report directory..."
-    - ls ./zap_data || true  # Ignora erros ao listar arquivos
+    - echo "Checking if scan-report.html was created..."
+    - if [ -f ./zap_data/scan-report.html ]; then echo "Report found"; else echo "Report not found"; fi
+    - echo "Checking if quick_scan_alert_report.md was created..."
+    - if [ -f ./zap_data/quick_scan_alert_report.md ]; then echo "Alert report found"; else echo "Alert report not found"; fi
   artifacts:
     when: always
     expire_in: 1 week
     paths:
       - ./zap_data/scan-report.html
       - ./zap_data/quick_scan_alert_report.md
+  after_script:
+    - echo "If artifacts not found, this step ensures the pipeline continues."
 
 # Estágio de Deploy
 deploy:
