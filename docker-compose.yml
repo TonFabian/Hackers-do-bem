@@ -6,7 +6,7 @@ services:
       - "8080:8080"
     volumes:
       - ./zap_data:/zap/wrk  # Mapeia o diretório wrk
-    command: zap-baseline.py -t https://8f84-24-152-27-101.ngrok-free.app/ -r /zap
+    command: zap-baseline.py -t https://3242-24-152-27-101.ngrok-free.app/ -r /zap
 
   loki:
     image: grafana/loki:2.8.0

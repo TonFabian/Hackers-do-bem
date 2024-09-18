@@ -3,7 +3,7 @@ env:
   - excludePaths: []
     name: baseline
     urls:
-    - https://8f84-24-152-27-101.ngrok-free.app/
+    https://3242-24-152-27-101.ngrok-free.app/
   parameters:
     failOnError: true
     progressToStdout: false
@@ -14,7 +14,7 @@ jobs:
   type: passiveScan-config
 - parameters:
     maxDuration: 1
-    url: https://8f84-24-152-27-101.ngrok-free.app/
+    url: https://3242-24-152-27-101.ngrok-free.app/
   type: spider
 - parameters:
     maxDuration: 0
