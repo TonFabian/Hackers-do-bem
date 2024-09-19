@@ -1,92 +1,38 @@
-image: python:3.9
+image: docker:latest
 
 services:
   - docker:dind
 
+variables:
+  DOCKER_DRIVER: overlay2
+  FLASK_APP: todo_project/run.py
+  FLASK_ENV: development
+
 stages:
   - build
-  - lint
   - test
   - scan
-  - monitor
-  - deploy
-  - review
 
-# Estágio de Build
 build:
   stage: build
-  image: docker:latest
-  services:
-    - docker:dind
   script:
-    - echo "Building Docker image..."
-    - docker build -t my-app-image .
+    - docker build -t task-manager-flask .
 
-# Estágio de Análise Estática de Código (SAST) com Bandit
-lint:
-  stage: lint
-  script:
-    - pip install --upgrade pip
-    - pip install bandit
-    - bandit -r todo_project/todo_project -f html -o bandit-report.html || true
-  artifacts:
-    paths:
-      - bandit-report.html
-    expire_in: 1 week
-
-# Estágio de Testes
 test:
   stage: test
   script:
-    - pip install --upgrade pip
-    - pip install -r requirements.txt
-    - pytest --maxfail=1 --disable-warnings -q
+    - docker run --rm -p 5000:5000 task-manager-flask
 
-# Estágio de Scan
-scan:
+zap-scan:
   stage: scan
-  image: docker:latest
+  image: owasp/zap2docker-stable
   services:
-    - docker:dind
+    - name: owasp/zap2docker-stable
+      alias: zap
   script:
-    - echo "Running OWASP ZAP scan..."
-    - mkdir -p ./zap_data  # Cria o diretório se não existir
-    - docker-compose -f docker-compose.yml up --abort-on-container-exit || true
-    - echo "Checking if scan-report.html was created..."
-    - if [ -f ./zap_data/scan-report.html ]; then echo "Report found"; else echo "Report not found"; fi
-    - echo "Checking if quick_scan_alert_report.md was created..."
-    - if [ -f ./zap_data/quick_scan_alert_report.md ]; then echo "Alert report found"; else echo "Alert report not found"; fi
+    - >
+      docker run -v $(pwd)/zap_data:/zap/wrk -t owasp/zap2docker-stable zap-baseline.py -t http://task-manager:5000 -r /zap/wrk/zap_report.html
   artifacts:
-    when: always
-    expire_in: 1 week
     paths:
-      - zap_data/scan-report.html
-      - zap_data/quick_scan_alert_report.md
-  after_script:
-    - echo "If artifacts not found, this step ensures the pipeline continues."
-
-# Estágio de Monitoramento
-monitor:
-  stage: monitor
-  image: python:3.9
-  script:
-    - echo "Verifying Grafana and Loki setup..."
-    - curl -X GET http://localhost:3000/api/datasources || true
-  # Certifique-se de que o serviço Grafana e Loki esteja acessível durante este estágio.
-  # Dependendo da configuração, você pode precisar ajustar a URL ou usar outra abordagem para verificar a instalação.
-
-# Estágio de Deploy
-deploy:
-  stage: deploy
-  script:
-    - echo "Deploying application..."
-    # Adicione aqui os comandos para o estágio de deploy.
-
-
-# Estágio de Review
-review:
-  stage: review
-  script:
-    - echo "Creating review environment..."
-    # Adicione seus comandos para criar um ambiente de revisão aqui, se necessário
+      - zap_data/zap_report.html
 

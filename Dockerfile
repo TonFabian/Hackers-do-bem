@@ -1,8 +1,23 @@
-FROM zaproxy/zap-stable:2.15.0
+# Usando uma imagem base do Python
+FROM python:3.9-slim
 
-WORKDIR /zap/wrk
+# Definindo o diretório de trabalho dentro do contêiner
+WORKDIR /app
 
-EXPOSE 8080
+# Copiando os arquivos necessários para o contêiner
+COPY . /app
 
-CMD ["zap-baseline.py", "-t", "https://a2ff-24-152-27-101.ngrok-free.app/", "-r", "/zap/wrk/scan-report.html"]
+# Instalando as dependências
+RUN pip install --upgrade pip \
+    && pip install -r requirements.txt
+
+# Definindo as variáveis de ambiente necessárias
+ENV FLASK_APP=todo_project/run.py
+ENV FLASK_ENV=development
+
+# Expondo a porta da aplicação
+EXPOSE 5000
+
+# Comando para rodar o Flask
+CMD ["flask", "run", "--host=0.0.0.0"]
 

@@ -3,7 +3,7 @@ env:
   - excludePaths: []
     name: baseline
     urls:
-    https://3242-24-152-27-101.ngrok-free.app/
+    - http://web:5000
   parameters:
     failOnError: true
     progressToStdout: false
@@ -14,7 +14,7 @@ jobs:
   type: passiveScan-config
 - parameters:
     maxDuration: 1
-    url: https://3242-24-152-27-101.ngrok-free.app/
+    url: http://web:5000
   type: spider
 - parameters:
     maxDuration: 0
@@ -27,7 +27,7 @@ jobs:
 - parameters:
     reportDescription: ''
     reportDir: /zap/wrk/
-    reportFile: /zap
+    reportFile: /zap/wrk/zap_report.html
     reportTitle: ZAP Scanning Report
     template: traditional-html
   type: report
